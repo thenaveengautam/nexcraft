@@ -22,6 +22,12 @@ export async function middleware(request: NextRequest) {
 
   const isProtected = protectedPaths.some((path) => pathname.startsWith(path));
 
+  if (pathname.startsWith("/dashboard")) {
+    console.log("MIDDLEWARE HIT:", pathname);
+    console.log("ALL COOKIES:", request.cookies.getAll().map(c => c.name).join(", "));
+    console.log("IS TOKEN VALID?", !!token);
+  }
+
   if (isProtected && !token) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("callbackUrl", pathname);
