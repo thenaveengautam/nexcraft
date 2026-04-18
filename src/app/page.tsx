@@ -15,7 +15,6 @@ import {
   X,
   ChevronRight,
   ChevronDown,
-  ArrowUp,
   Users,
   FileText,
   TrendingUp,
@@ -73,7 +72,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
@@ -88,15 +86,10 @@ export default function LandingPage() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      setShowScrollTop(window.scrollY > 500);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const navLinks = [
     { label: "Features", href: "#features" },

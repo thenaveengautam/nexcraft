@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Sparkles, Bot, User, Mail, ExternalLink, CheckCircle } from "lucide-react";
+import { MessageCircle, X, Send, Sparkles, Bot, User, Mail, CheckCircle } from "lucide-react";
 
 interface Message {
   id: string;
