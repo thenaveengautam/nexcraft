@@ -45,9 +45,19 @@ export default function LoginPage() {
           return;
         }
 
+        // Map NextAuth generic error codes to a user-friendly UI message
+        let errorMessage = result.error;
+        if (
+          errorMessage === "CredentialsSignin" ||
+          errorMessage === "Configuration" ||
+          errorMessage === "AccessDenied"
+        ) {
+          errorMessage = "Incorrect email or password. Please try again.";
+        }
+
         toast({
           title: "Login failed",
-          description: result.error,
+          description: errorMessage,
           variant: "destructive",
         });
       } else {
