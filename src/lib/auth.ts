@@ -1,10 +1,11 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 
 class CustomAuthError extends CredentialsSignin {
-  code: string;
+  type: string;
   constructor(message: string) {
-    super();
+    super(message);
     this.code = message;
+    this.type = message;
   }
 }
 import Google from "next-auth/providers/google";
