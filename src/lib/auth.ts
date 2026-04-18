@@ -1,4 +1,12 @@
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
+
+class CustomAuthError extends CredentialsSignin {
+  code: string;
+  constructor(message: string) {
+    super();
+    this.code = message;
+  }
+}
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -25,7 +33,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Please enter email and password");
+          throw new CustomAuthError("Please enter email and password");
         }
 
         await dbConnect();
@@ -33,15 +41,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const user = await User.findOne({ email: (credentials.email as string).toLowerCase() });
 
         if (!user) {
-          throw new Error("No account found with this email");
+          throw new CustomAuthError("No account found with this email");
         }
 
         if (!user.password) {
-          throw new Error("This account uses Google sign-in. Please use Google to log in.");
+          throw new CustomAuthError("This account uses Google sign-in. Please use Google to log in.");
         }
 
         if (!user.emailVerified) {
-          throw new Error("UNVERIFIED:" + user.email);
+          throw new CustomAuthError("UNVERIFIED:" + user.email);
         }
 
         const isPasswordCorrect = await bcrypt.compare(
@@ -50,7 +58,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         );
 
         if (!isPasswordCorrect) {
-          throw new Error("Incorrect password");
+          throw new CustomAuthError("Incorrect password");
         }
 
         return {
