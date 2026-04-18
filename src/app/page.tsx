@@ -213,8 +213,8 @@ export default function LandingPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative pt-20 pb-20 px-4 sm:px-6 hero-gradient overflow-hidden">
-        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] animate-float pointer-events-none" />
-        <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[120px] animate-float pointer-events-none" style={{ animationDelay: "3s" }} />
+        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" />
+        <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" style={{ animationDelay: "3s" }} />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div {...fadeIn} transition={{ duration: 0.6 }}>
