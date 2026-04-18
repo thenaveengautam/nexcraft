@@ -4,43 +4,31 @@ import React from 'react';
 export const NexcraftLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center shrink-0 group ${className}`}>
     
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 w-[140%] h-[140%] drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-500">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="relative z-10 w-full h-full drop-shadow-[0_2px_8px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-300">
       <defs>
-        <radialGradient id="ai-sun-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="50%" stopColor="#c084fc" />
-          <stop offset="100%" stopColor="#4c1d95" />
-        </radialGradient>
-        <linearGradient id="ai-ring-1" x1="0" y1="0" x2="100" y2="100">
-          <stop offset="0%" stopColor="#2dd4bf" />
-          <stop offset="50%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#8b5cf6" />
+        <linearGradient id="cyan-violet-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2DD4BF" />
+          <stop offset="100%" stopColor="#8B5CF6" />
         </linearGradient>
-        <linearGradient id="ai-ring-2" x1="100" y1="0" x2="0" y2="100">
-          <stop offset="0%" stopColor="#f472b6" />
-          <stop offset="50%" stopColor="#c084fc" />
-          <stop offset="100%" stopColor="#4f46e5" />
+        
+        <linearGradient id="violet-pink-logo" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#8B5CF6" />
+          <stop offset="100%" stopColor="#F472B6" />
         </linearGradient>
+        
+        <filter id="logo-shadow-main" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="-5" dy="0" stdDeviation="4" floodColor="#000000" floodOpacity="0.6" />
+        </filter>
       </defs>
 
-      {/* Orbiting Quantum Energy Rings (Spinning comet-like dashes) */}
-      <g className="animate-[spin_4s_linear_infinite]" style={{ transformOrigin: 'center' }}>
-        <ellipse cx="50" cy="50" rx="35" ry="12" fill="none" stroke="url(#ai-ring-1)" strokeWidth="2.5" opacity="0.9" strokeLinecap="round" strokeDasharray="120 60" transform="rotate(45 50 50)" />
+      <g strokeLinejoin="round" strokeLinecap="round">
+        <polygon points="6,20 41,50 6,80 36,80 71,50 36,20" fill="url(#cyan-violet-logo)" stroke="url(#cyan-violet-logo)" strokeWidth="4" />
+        <polygon points="31,20 66,50 31,80 61,80 96,50 61,20" fill="url(#violet-pink-logo)" stroke="url(#violet-pink-logo)" strokeWidth="4" filter="url(#logo-shadow-main)" />
+        
+        <line x1="36" y1="20" x2="71" y2="50" stroke="#ffffff" strokeWidth="2" opacity="0.4" />
+        <line x1="61" y1="20" x2="96" y2="50" stroke="#ffffff" strokeWidth="2" opacity="0.6" />
+        <line x1="6" y1="20" x2="41" y2="50" stroke="#ffffff" strokeWidth="2" opacity="0.3" />
       </g>
-      <g className="animate-[spin_5s_linear_infinite_reverse]" style={{ transformOrigin: 'center' }}>
-        <ellipse cx="50" cy="50" rx="38" ry="14" fill="none" stroke="url(#ai-ring-2)" strokeWidth="2.5" opacity="0.9" strokeLinecap="round" strokeDasharray="130 70" transform="rotate(-45 50 50)" />
-      </g>
-      
-      {/* Massive Central AI Generation Star */}
-      <path d="M50 5 C 50 5, 55 45, 95 50 C 55 55, 50 95, 50 95 C 50 95, 45 55, 5 50 C 45 45, 50 5, 50 5 Z" fill="url(#ai-sun-glow)" className="animate-pulse" style={{ animationDuration: '2s' }} />
-      
-      {/* Central Super-bright Core */}
-      <circle cx="50" cy="50" r="14" fill="#ffffff" opacity="0.5" filter="blur(4px)" />
-      <circle cx="50" cy="50" r="6" fill="#ffffff" />
-      
-      {/* Orbiting Tiny Magic Sparkles */}
-      <path d="M80 20 C 80 20, 81.5 28, 90 30 C 81.5 32, 80 40, 80 40 C 80 40, 78.5 32, 70 30 C 78.5 28, 80 20, 80 20 Z" fill="#22d3ee" className="animate-pulse" style={{ animationDuration: '2.5s' }} />
-      <path d="M25 75 C 25 75, 26 81, 32 82 C 26 83, 25 89, 25 89 C 25 89, 24 83, 18 82 C 24 81, 25 75, 25 75 Z" fill="#f472b6" className="animate-pulse" style={{ animationDelay: '1s', animationDuration: '2s' }} />
     </svg>
   </div>
 );

@@ -131,12 +131,12 @@ export default function LandingPage() {
       {/* ===== NAVBAR ===== */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5"
-            : "bg-transparent"
+          ? "bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5"
+          : "bg-transparent"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-1 group">
+          <Link href="/" className="flex items-center gap-1.5 group">
             <NexcraftLogo />
             <span className="text-xl font-heading font-bold text-white tracking-wide">Nexcraft</span>
           </Link>
