@@ -4,7 +4,7 @@ import React from 'react';
 export const NexcraftLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
   <div className={`relative flex items-center justify-center shrink-0 group ${className}`}>
     
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="relative z-10 w-full h-full drop-shadow-[0_2px_8px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-300">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="relative z-10 w-full h-full group-hover:scale-110 transition-transform duration-300">
       <defs>
         <linearGradient id="cyan-violet-logo" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#2DD4BF" />
