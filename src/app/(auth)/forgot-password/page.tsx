@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Loader2, ArrowLeft, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NexcraftLogo } from "@/components/shared/NexcraftLogo";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
@@ -59,9 +60,10 @@ export default function ForgotPasswordPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="text-center mb-8">
-          <Link href="/">
-            <h1 className="text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <Link href="/" className="flex items-center gap-1.5 group">
+            <NexcraftLogo />
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
           </Link>
         </div>
 

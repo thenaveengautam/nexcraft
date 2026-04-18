@@ -104,7 +104,7 @@ export default function RegisterPage() {
         className="w-full max-w-md"
       >
         <div className="flex justify-center mb-4 sm:mb-6">
-          <Link href="/" className="flex items-center gap-1 group">
+          <Link href="/" className="flex items-center gap-1.5 group">
             <NexcraftLogo />
             <h1 className="text-2xl sm:text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
           </Link>
