@@ -3,10 +3,13 @@ import type { NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
 
 export async function middleware(request: NextRequest) {
-  const token = await getToken({
-    req: request,
-    secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
-  });
+  // Native cookie check bypasses Edge runtime decryption bugs on Vercel
+  const hasSecureAuthJs = request.cookies.has("__Secure-authjs.session-token");
+  const hasAuthJs = request.cookies.has("authjs.session-token");
+  const hasSecureNextAuth = request.cookies.has("__Secure-next-auth.session-token");
+  const hasNextAuth = request.cookies.has("next-auth.session-token");
+  
+  const token = hasSecureAuthJs || hasAuthJs || hasSecureNextAuth || hasNextAuth;
 
   const { pathname } = request.nextUrl;
 
