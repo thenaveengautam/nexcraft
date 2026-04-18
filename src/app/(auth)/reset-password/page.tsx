@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Lock, Eye, EyeOff, Loader2, Check, X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { NexcraftLogo } from "@/components/shared/NexcraftLogo";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { getPasswordStrength } from "@/lib/utils";
@@ -101,9 +102,12 @@ function ResetPasswordContent() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="text-center mb-8">
-          <Link href="/">
-            <h1 className="text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
+        <div className="text-center mb-8 flex justify-center">
+          <Link href="/" className="inline-flex items-center gap-2 group">
+            <div className="flex items-center justify-center scale-110">
+              <NexcraftLogo />
+            </div>
+            <h1 className="text-3xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
           </Link>
         </div>
 
