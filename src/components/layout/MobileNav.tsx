@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Menu, Sparkles, LayoutDashboard, History, LayoutTemplate, CreditCard, Settings } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+import { NexcraftLogo } from "@/components/shared/NexcraftLogo";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -31,11 +32,11 @@ export default function MobileNav() {
         <SheetContent side="left" className="w-72 glass-card border-white/5 p-0">
           {/* Logo */}
           <div className="p-6 border-b border-white/5">
-            <Link href="/dashboard" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-violet-400 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
+            <Link href="/dashboard" className="flex items-center gap-1.5 group" onClick={() => setOpen(false)}>
+              <div className="flex items-center justify-center scale-90">
+                 <NexcraftLogo />
               </div>
-              <h1 className="text-lg font-heading font-bold text-gradient">Nexcraft</h1>
+              <h1 className="text-xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
             </Link>
           </div>
 

@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { NexcraftLogo } from "@/components/shared/NexcraftLogo";
 import {
   LayoutDashboard,
   Sparkles,
@@ -29,12 +30,12 @@ export default function Sidebar() {
     <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 glass-card rounded-none border-r border-white/5 z-40">
       {/* Logo */}
       <div className="p-6 border-b border-white/5">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-violet-400 flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-white" />
+        <Link href="/dashboard" className="flex items-center gap-1.5 group">
+          <div className="flex items-center justify-center scale-90">
+             <NexcraftLogo />
           </div>
           <div>
-            <h1 className="text-lg font-heading font-bold text-gradient">Nexcraft</h1>
+            <h1 className="text-xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
           </div>
         </Link>
       </div>
