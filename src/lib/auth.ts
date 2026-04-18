@@ -1,10 +1,10 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 
 class CustomAuthError extends CredentialsSignin {
-  type: string;
   constructor(message: string) {
     super(message);
     this.code = message;
+    // @ts-expect-error - overriding strictly typed NextAuth Error to display custom string
     this.type = message;
   }
 }
