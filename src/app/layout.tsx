@@ -21,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Nexcraft — Craft Content That Glows",
+  title: "Nexcraft - Craft Content That Glows",
   description: "AI-powered social media content generator for Instagram, Twitter/X, LinkedIn & YouTube. Generate viral content in seconds.",
   keywords: ["AI content generator", "social media", "content creation", "Instagram", "Twitter", "LinkedIn", "YouTube"],
 };
