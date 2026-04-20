@@ -212,7 +212,7 @@ export default function LandingPage() {
       </nav>
 
       {/* ===== HERO ===== */}
-      <section className="relative pt-24 pb-20 px-4 sm:px-6 hero-gradient overflow-hidden">
+      <section className="relative pt-20 pb-20 px-4 sm:px-6 hero-gradient overflow-hidden">
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" />
         <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" style={{ animationDelay: "3s" }} />
 
