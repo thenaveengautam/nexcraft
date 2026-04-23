@@ -153,14 +153,14 @@ function GenerateContent() {
           {/* Platform Selector */}
           <div>
             <label className="text-sm font-medium mb-3 block">Platform</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-4">
               {PLATFORMS.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => handlePlatformChange(p.id)}
                   className={cn(
-                    "glass-card p-3 flex items-center gap-3 transition-all duration-200 cursor-pointer",
-                    platform === p.id ? "platform-selected" : "hover:bg-white/5"
+                    "glass-card p-3 flex items-center gap-3 transition-all duration-300 cursor-pointer",
+                    platform === p.id ? "platform-selected" : "hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
                   )}
                 >
                   <div
@@ -295,83 +295,119 @@ function GenerateContent() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="gradient-glow gradient-glow-active sticky top-24">
-            <div className="glass-card min-h-[500px] flex flex-col">
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-white/5">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-violet-400" />
-                  <span className="text-sm font-heading font-semibold">Output</span>
-                  {generating && (
-                    <span className="flex items-center gap-1 text-xs text-cyan-400">
-                      <Loader2 className="w-3 h-3 animate-spin" />
-                      Generating...
-                    </span>
+          <div className="sticky top-24">
+            <div
+              className="relative overflow-hidden rounded-2xl min-h-[500px] flex flex-col p-[1px] group shadow-2xl hover:shadow-violet-500/20 transition-all duration-700 bg-[#09090b]"
+            >
+              {/* Animated Spinning Border Beams */}
+              <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#00000000_50%,#00000000_80%,#8b5cf6_100%)] animate-[spin_4s_linear_infinite]" />
+              <div className="absolute inset-[-100%] bg-[conic-gradient(from_270deg_at_50%_50%,#00000000_50%,#00000000_80%,#06b6d4_100%)] animate-[spin_4s_linear_infinite]" />
+
+              {/* Inner Card (covers the middle of the conic gradient) */}
+              <div className="relative h-full w-full bg-[#09090b] rounded-[15px] overflow-hidden flex flex-col">
+
+                {/* Scanline Animation Overlay */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl z-20 mix-blend-overlay">
+                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-transparent via-violet-500/20 to-transparent -translate-y-full animate-[scan_6s_ease-in-out_infinite]" />
+                </div>
+
+                {/* Dot Matrix Background */}
+                <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)] pointer-events-none" />
+
+                {/* Glowing Top Corner */}
+                <div className="absolute -top-32 -right-32 w-64 h-64 bg-violet-500/20 rounded-full blur-[80px] pointer-events-none" />
+
+                {/* Header */}
+                <div className="relative z-10 flex items-center justify-between p-4 border-b border-white/5 bg-white/[0.02] backdrop-blur-md">
+                  <div className="flex items-center gap-4">
+                    {/* macOS Style Window Controls */}
+                    <div className="flex items-center gap-1.5 hidden sm:flex">
+                      <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]" />
+                      <div className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123]" />
+                      <div className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]" />
+                    </div>
+
+                    <div className="flex items-center gap-2 sm:border-l sm:border-white/10 sm:pl-4">
+                      <Sparkles className="w-4 h-4 text-violet-400" />
+                      <span className="text-sm font-heading font-semibold text-white/90">Output Terminal</span>
+                    </div>
+                    {generating && (
+                      <span className="flex items-center gap-1 text-xs text-cyan-400">
+                        <Loader2 className="w-3 h-3 animate-spin" />
+                        Generating...
+                      </span>
+                    )}
+                  </div>
+                  {output && (
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleCopy}
+                        className="text-sm h-8 text-muted-foreground hover:text-foreground"
+                      >
+                        {copied ? <Check className="w-3 h-3 mr-1" /> : <Copy className="w-3 h-3 mr-1" />}
+                        {copied ? "Copied" : "Copy"}
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleGenerate}
+                        disabled={generating}
+                        className="text-sm h-8 text-muted-foreground hover:text-foreground"
+                      >
+                        <RefreshCw className="w-3 h-3 mr-1" />
+                        Redo
+                      </Button>
+                    </div>
                   )}
                 </div>
-                {output && (
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={handleCopy}
-                      className="text-sm h-8 text-muted-foreground hover:text-foreground"
-                    >
-                      {copied ? <Check className="w-3 h-3 mr-1" /> : <Copy className="w-3 h-3 mr-1" />}
-                      {copied ? "Copied" : "Copy"}
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={handleGenerate}
-                      disabled={generating}
-                      className="text-sm h-8 text-muted-foreground hover:text-foreground"
-                    >
-                      <RefreshCw className="w-3 h-3 mr-1" />
-                      Redo
-                    </Button>
-                  </div>
-                )}
-              </div>
 
-              {/* Content */}
-              <div className="flex-1 p-6 overflow-y-auto custom-scrollbar">
-                {output ? (
-                  <div className="prose prose-invert prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed">{output}</div>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-full text-center">
-                    <div className="w-16 h-16 rounded-full bg-violet-500/10 flex items-center justify-center mb-4">
-                      <Sparkles className="w-8 h-8 text-violet-400/50" />
+                {/* Content */}
+                <div className="flex-1 p-6 overflow-y-auto custom-scrollbar">
+                  {output ? (
+                    <div className="prose prose-invert prose-sm max-w-none">
+                      <div className="whitespace-pre-wrap text-sm leading-relaxed">{output}</div>
                     </div>
-                    <p className="text-muted-foreground text-sm">Your AI-generated content will appear here</p>
-                    <p className="text-muted-foreground text-xs mt-1">Select options and click Generate</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Character count */}
-              {output && charLimit && (
-                <div className="px-6 py-3 border-t border-white/5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">
-                      {output.length} / {charLimit} characters
-                    </span>
-                    <div className="w-32 h-1.5 rounded-full bg-white/5 overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all"
-                        style={{
-                          width: `${Math.min((output.length / charLimit) * 100, 100)}%`,
-                          background: output.length > charLimit
-                            ? "#ef4444"
-                            : "linear-gradient(90deg, #7c3aed, #06b6d4)",
-                        }}
-                      />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-center relative z-10">
+                      <div className="w-20 h-20 rounded-full bg-violet-500/5 flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(139,92,246,0.1)] relative group-hover:scale-110 transition-transform duration-700">
+                        <div className="absolute inset-0 rounded-full border border-violet-500/20 animate-[spin_10s_linear_infinite]" />
+                        <Sparkles className="w-10 h-10 text-violet-400/80 animate-[pulse_3s_ease-in-out_infinite]" />
+                      </div>
+                      <p className="text-base font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 animate-[pulse_4s_ease-in-out_infinite] tracking-wide">
+                        Your AI-generated content will appear here
+                      </p>
+                      <p className="text-muted-foreground/60 text-xs mt-3 uppercase tracking-widest font-semibold">
+                        Awaiting Commands...
+                      </p>
                     </div>
-                  </div>
+                  )}
                 </div>
-              )}
+
+                {/* Character count */}
+                {output && charLimit && (
+                  <div className="px-6 py-3 border-t border-white/5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground">
+                        {output.length} / {charLimit} characters
+                      </span>
+                      <div className="w-32 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div
+                          className="h-full rounded-full transition-all"
+                          style={{
+                            width: `${Math.min((output.length / charLimit) * 100, 100)}%`,
+                            background: output.length > charLimit
+                              ? "#ef4444"
+                              : "linear-gradient(90deg, #7c3aed, #06b6d4)",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* End of Inner Card */}
             </div>
           </div>
         </motion.div>

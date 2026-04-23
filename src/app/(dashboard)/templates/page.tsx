@@ -138,7 +138,7 @@ export default function TemplatesPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.03 }}
-            className="glass-card-hover p-5 cursor-pointer group"
+            className="glass-card p-5 cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
             onClick={() => handleUseTemplate(template)}
           >
             <div className="flex items-start justify-between mb-3">
