@@ -73,7 +73,26 @@ export async function POST(req: Request) {
       topic
     );
 
-    const stream = await generateContentStream(prompt);
+    let stream;
+    try {
+      stream = await generateContentStream(prompt);
+    } catch (apiError) {
+      const errMsg = (apiError as Error).message || "";
+      console.error("Groq API error:", errMsg);
+      if (errMsg.includes("429") || errMsg.toLowerCase().includes("rate limit")) {
+        return NextResponse.json(
+          { success: false, error: "Too many requests. Please wait a moment and try again." },
+          { status: 429 }
+        );
+      }
+      if (errMsg.includes("401") || errMsg.toLowerCase().includes("api key")) {
+        return NextResponse.json(
+          { success: false, error: "AI service configuration error. Please contact support." },
+          { status: 500 }
+        );
+      }
+      throw apiError;
+    }
 
     let fullContent = "";
 
@@ -82,10 +101,12 @@ export async function POST(req: Request) {
       async start(controller) {
         try {
           for await (const chunk of stream) {
-            const text = chunk.text();
-            fullContent += text;
-            const data = JSON.stringify({ text });
-            controller.enqueue(new TextEncoder().encode(`data: ${data}\n\n`));
+            const text = chunk.choices[0]?.delta?.content || "";
+            if (text) {
+              fullContent += text;
+              const data = JSON.stringify({ text });
+              controller.enqueue(new TextEncoder().encode(`data: ${data}\n\n`));
+            }
           }
 
           // Save content to DB after streaming completes
@@ -108,10 +129,17 @@ export async function POST(req: Request) {
           );
           controller.close();
         } catch (error) {
+          const errMsg = (error as Error).message || "";
           console.error("Streaming error:", error);
+          let userError = "Generation failed. Please try again.";
+          if (errMsg.includes("401") || errMsg.toLowerCase().includes("api key")) {
+            userError = "Invalid API key. Please contact support.";
+          } else if (errMsg.includes("429") || errMsg.toLowerCase().includes("rate limit")) {
+            userError = "Too many requests. Please wait a moment and try again.";
+          }
           controller.enqueue(
             new TextEncoder().encode(
-              `data: ${JSON.stringify({ error: "Generation failed" })}\n\n`
+              `data: ${JSON.stringify({ error: userError })}\n\n`
             )
           );
           controller.close();

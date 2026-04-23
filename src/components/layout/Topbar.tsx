@@ -72,7 +72,7 @@ export default function Topbar() {
             <DropdownMenuSeparator className="bg-white/10" />
             <DropdownMenuItem
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="cursor-pointer text-red-400 focus:text-red-400"
+              className="cursor-pointer text-red-400 focus:text-red-400 font-semibold hover:!bg-red-500 hover:!text-white focus:!bg-red-500 focus:!text-white transition-colors"
             >
               <LogOut className="w-4 h-4 mr-2" />
               Sign Out

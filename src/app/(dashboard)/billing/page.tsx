@@ -183,7 +183,7 @@ function BillingContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + i * 0.1 }}
-            className={`glass-card p-6 relative overflow-visible ${p.id === "pro" ? "border-violet-500/30" : ""}`}
+            className={`glass-card p-6 relative overflow-visible transition-all duration-300 hover:-translate-y-2 ${p.id !== "free" ? "hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10" : ""}`}
           >
             {p.id === "pro" && (
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">

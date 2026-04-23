@@ -1,7 +1,7 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { Platform, ContentType, Tone, Language } from "@/types";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! });
 
 const PLATFORM_LABELS: Record<Platform, string> = {
   instagram: "Instagram",
@@ -74,9 +74,12 @@ Now create the content:`;
 }
 
 export async function generateContentStream(prompt: string) {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
+  const stream = await groq.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [{ role: "user", content: prompt }],
+    stream: true,
+    max_tokens: 1024,
+  });
 
-  const result = await model.generateContentStream(prompt);
-
-  return result.stream;
+  return stream;
 }
