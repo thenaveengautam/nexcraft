@@ -162,7 +162,7 @@
   ::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.15);
     border: solid transparent;
-    border-width: 24px 4px;
+    border-width: 5px 4px;
     background-clip: padding-box;
     border-radius: 9999px;
   }
