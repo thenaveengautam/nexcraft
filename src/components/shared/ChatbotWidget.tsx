@@ -157,11 +157,6 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 }
 
-const BotIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7H4a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13a1.5 1.5 0 0 0-1.5 1.5A1.5 1.5 0 0 0 7.5 16 1.5 1.5 0 0 0 9 14.5 1.5 1.5 0 0 0 7.5 13m9 0a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5A1.5 1.5 0 0 0 16.5 13M12 17c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z" />
-  </svg>
-);
 
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -182,7 +177,7 @@ export default function ChatbotWidget() {
   useEffect(() => {
     const t = setTimeout(() => { if (!isOpen) setBadge(true); }, 4000);
     return () => clearTimeout(t);
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
