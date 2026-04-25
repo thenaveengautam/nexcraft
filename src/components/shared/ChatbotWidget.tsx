@@ -403,7 +403,7 @@ export default function ChatbotWidget() {
         @media (max-width: 640px) {
           .nx-chat-window {
             height: min(440px, calc(100vh - 5rem)) !important;
-            right: 5px !important;
+            right: 14px !important;
           }
         }
       `}</style>
