@@ -261,7 +261,7 @@ export default function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.94 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed bottom-6 right-6 z-50 flex flex-col rounded-2xl overflow-hidden bg-background border border-white/[0.07]"
+            className="nx-chat-window fixed bottom-6 right-6 z-50 flex flex-col rounded-2xl overflow-hidden bg-background border border-white/[0.07]"
             style={{
               width: "380px",
               maxWidth: "calc(100vw - 1.5rem)",
@@ -398,7 +398,14 @@ export default function ChatbotWidget() {
         )}
       </AnimatePresence>
 
-      <style>{`@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }`}</style>
+      <style>{`
+        @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+        @media (max-width: 640px) {
+          .nx-chat-window {
+            height: min(420px, calc(100vh - 6rem)) !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
