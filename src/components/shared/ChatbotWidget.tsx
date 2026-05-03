@@ -402,13 +402,14 @@ export default function ChatbotWidget() {
         @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
         @media (max-width: 640px) {
           .nx-chat-window {
-            top: 0.75rem !important;
-            bottom: 0.75rem !important;
-            left: 0.5rem !important;
-            right: 0.5rem !important;
+            top: auto !important;
+            bottom: 12px !important;
+            left: 12px !important;
+            right: 12px !important;
             width: auto !important;
             max-width: none !important;
-            height: auto !important;
+            height: 440px !important;
+            max-height: calc(100% - 24px) !important;
           }
         }
       `}</style>
