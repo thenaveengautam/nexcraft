@@ -265,7 +265,7 @@ export default function ChatbotWidget() {
             style={{
               width: "380px",
               maxWidth: "calc(100vw - 1.5rem)",
-              height: "min(600px, calc(100vh - 3rem))",
+              height: "min(600px, calc(100dvh - 3rem))",
               boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,58,237,0.1)",
             }}
           >
@@ -402,7 +402,7 @@ export default function ChatbotWidget() {
         @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
         @media (max-width: 640px) {
           .nx-chat-window {
-            height: min(440px, calc(100vh - 5rem)) !important;
+            height: min(500px, calc(100dvh - 5rem)) !important;
             right: 14px !important;
           }
         }
