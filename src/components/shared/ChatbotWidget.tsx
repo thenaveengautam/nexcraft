@@ -171,8 +171,22 @@ export default function ChatbotWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const [badge, setBadge] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => setViewportHeight(window.visualViewport ? window.visualViewport.height : window.innerHeight);
+      if (window.visualViewport) window.visualViewport.addEventListener("resize", handleResize);
+      else window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => {
+        if (window.visualViewport) window.visualViewport.removeEventListener("resize", handleResize);
+        else window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const t = setTimeout(() => { if (!isOpen) setBadge(true); }, 4000);
@@ -267,6 +281,7 @@ export default function ChatbotWidget() {
               maxWidth: "calc(100vw - 1.5rem)",
               height: "min(600px, calc(100dvh - 3rem))",
               boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,58,237,0.1)",
+              ...(viewportHeight > 0 ? { "--vvp-height": `${viewportHeight}px` } as React.CSSProperties : {}),
             }}
           >
             {/* Header */}
@@ -409,8 +424,7 @@ export default function ChatbotWidget() {
             width: auto !important;
             max-width: none !important;
             height: 440px !important;
-            max-height: calc(100vh - 28px) !important;
-            max-height: calc(100dvh - 28px) !important;
+            max-height: calc(var(--vvp-height, 100vh) - 28px) !important;
           }
         }
       `}</style>
