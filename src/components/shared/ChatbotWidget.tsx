@@ -403,13 +403,14 @@ export default function ChatbotWidget() {
         @media (max-width: 640px) {
           .nx-chat-window {
             top: auto !important;
-            bottom: 12px !important;
-            left: 12px !important;
-            right: 12px !important;
+            bottom: 14px !important;
+            left: 14px !important;
+            right: 14px !important;
             width: auto !important;
             max-width: none !important;
             height: 440px !important;
-            max-height: calc(100% - 24px) !important;
+            max-height: calc(100vh - 28px) !important;
+            max-height: calc(100dvh - 28px) !important;
           }
         }
       `}</style>
