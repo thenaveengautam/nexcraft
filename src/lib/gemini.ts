@@ -11,20 +11,20 @@ const PLATFORM_LABELS: Record<Platform, string> = {
 };
 
 const CONTENT_TYPE_LABELS: Record<ContentType, string> = {
-  caption: "Caption",
-  "reel-hook": "Reel Hook (opening line that stops scrolling)",
-  bio: "Bio",
-  "hashtag-set": "Set of relevant hashtags (20-30)",
-  tweet: "Tweet (max 280 characters)",
-  thread: "Thread of 5 connected tweets",
-  "reply-hook": "Reply hook to boost engagement",
-  post: "LinkedIn Post",
-  "carousel-script": "Carousel slides script (8-10 slides with heading + body)",
-  "connection-note": "Connection request note (max 300 characters)",
-  "video-title": "Video Title (SEO optimized, max 100 chars)",
-  description: "Video Description (SEO optimized with timestamps)",
-  "shorts-hook": "Shorts opening hook (first 3 seconds script)",
-  "community-post": "Community tab post",
+  caption: "Caption (keep it engaging and appropriate length for the platform)",
+  "reel-hook": "Reel Hook (strictly 1-2 short punchy lines that stop scrolling)",
+  bio: "Profile Bio (strictly short and punchy, maximum 150 characters)",
+  "hashtag-set": "Set of relevant hashtags (exactly 20-30)",
+  tweet: "Tweet (strictly under 280 characters)",
+  thread: "Thread of 5 connected tweets (each under 280 characters)",
+  "reply-hook": "Reply hook (strictly 1-2 short sentences to boost engagement)",
+  post: "LinkedIn Post (well-structured, 3-5 short paragraphs)",
+  "carousel-script": "Carousel slides script (8-10 slides with short heading + concise body)",
+  "connection-note": "Connection request note (strictly under 300 characters)",
+  "video-title": "Video Title (SEO optimized, strictly under 100 chars)",
+  description: "Video Description (SEO optimized with timestamps, detailed but scannable)",
+  "shorts-hook": "Shorts opening hook (strictly first 3 seconds script, very short)",
+  "community-post": "Community tab post (concise and engaging)",
 };
 
 const TONE_PROMPTS: Record<Tone, string> = {
@@ -59,7 +59,8 @@ TONE: ${TONE_PROMPTS[tone]}
 LANGUAGE: ${LANGUAGE_PROMPTS[language]}
 
 IMPORTANT GUIDELINES:
-- Write ONLY the content itself, no explanations or meta-commentary
+- STRICT LENGTH CONSTRAINT: Do NOT over-generate. Output length MUST perfectly match the real-world standard limit for this content type on ${PLATFORM_LABELS[platform]} (e.g., Bios MUST be extremely short).
+- Write ONLY the content itself, no explanations, no meta-commentary, no intro/outro
 - Make it engaging, scroll-stopping, and optimized for ${PLATFORM_LABELS[platform]}'s algorithm
 - Use appropriate emojis naturally (don't overdo it)
 - Include a strong call-to-action where appropriate
@@ -67,7 +68,6 @@ IMPORTANT GUIDELINES:
 - If it's a thread, number each tweet and separate them clearly
 - If it's hashtags, provide 20-30 relevant hashtags mixing popular and niche ones
 - For carousel scripts, format each slide clearly with "Slide X: [Heading] — [Body]"
-- Keep within platform character limits
 - Make sure the content feels authentic and human-written, not AI-generated
 
 Now create the content:`;
