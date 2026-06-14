@@ -32,7 +32,6 @@ export async function createSubscription(userId: string, email: string, targetPl
 
   const subscription = await razorpay.subscriptions.create({
     plan_id: RAZORPAY_PLANS[targetPlan].planId,
-    customer_id: customerId,
     customer_notify: 1,
     total_count: 120, // 10 years
     notes: { userId },
