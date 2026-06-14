@@ -39,7 +39,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ 
       success: true, 
       data: { 
-        subscriptionId: (subscription as { id: string }).id,
+        // @ts-expect-error - Razorpay type definition is flawed here
+        subscriptionId: subscription.id,
         keyId: process.env.RAZORPAY_KEY_ID
       } 
     });
