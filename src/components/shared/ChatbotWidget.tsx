@@ -255,14 +255,7 @@ export default function ChatbotWidget() {
               Chat with Nexcraft ✨
               <span className="absolute top-full right-5 border-[10px] border-transparent border-t-gray-900/95" />
             </span>
-            <AnimatePresence>
-              {badge && (
-                <motion.span
-                  initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center border-2 border-[#0f0f17]"
-                >1</motion.span>
-              )}
-            </AnimatePresence>
+
           </motion.button>
         )}
       </AnimatePresence>
