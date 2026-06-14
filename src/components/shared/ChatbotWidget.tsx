@@ -69,7 +69,7 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 
   if (q.includes("plan") || q.includes("pric") || q.includes("cost") || q.includes("upgrade") || q.includes("subscri") || q.includes("offer") || q.includes("free tier")) return {
-    text: "Here are our plans: 💳\n\n🆓 **Free** — $0/month\n• 10 generations/month\n• 3 tones • All 4 platforms\n\n⚡ **Pro** — $9/month\n• 50 generations/month\n• All 5 tones • 20+ templates\n• Priority generation\n\n🏢 **Business** — $29/month\n• Unlimited generations\n• Custom templates\n• Dedicated support\n\nUpgrade anytime from **Dashboard → Billing**!",
+    text: "Here are our plans: 💳\n\n🆓 **Free** — $0/month\n• 10 generations/month\n• 3 tones • All 4 platforms\n\n⚡ **Pro** — $9/month\n• 50 generations/month\n• All 5 tones • 20+ templates\n• Priority generation\n\n🏢 **Pro Max** — $29/month\n• Unlimited generations\n• Custom templates\n• Dedicated support\n\nUpgrade anytime from **Dashboard → Billing**!",
     quickReplies: ["What are templates?", "How do I upgrade?", "Cancel anytime?"],
   };
 
@@ -85,7 +85,7 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 
   if (q.includes("template") || q.includes("pre-built") || q.includes("preset")) return {
-    text: "All about templates! 📋\n\n**Templates** are one-click content generators — they auto-fill platform, type, tone & topic.\n\n**20+ built-in templates:**\n📸 Instagram: Product Launch, Motivational Quote\n🐦 Twitter/X: Thread Starter, Trending Take\n💼 LinkedIn: Thought Leadership, Career Update\n🎬 YouTube: SEO Title, Shorts Hook\n\n**Who gets them:**\n• Free → No templates\n• Pro ($9/mo) → All 20+\n• Business → Create custom ones!",
+    text: "All about templates! 📋\n\n**Templates** are one-click content generators — they auto-fill platform, type, tone & topic.\n\n**20+ built-in templates:**\n📸 Instagram: Product Launch, Motivational Quote\n🐦 Twitter/X: Thread Starter, Trending Take\n💼 LinkedIn: Thought Leadership, Career Update\n🎬 YouTube: SEO Title, Shorts Hook\n\n**Who gets them:**\n• Free → No templates\n• Pro ($9/mo) → All 20+\n• Pro Max → Create custom ones!",
     quickReplies: ["View pricing plans 💳", "How to get started? 🚀"],
   };
 
@@ -100,12 +100,12 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 
   if (q.includes("tone") || q.includes("professional") || q.includes("casual") || q.includes("humorous") || q.includes("inspirational") || q.includes("storytelling")) return {
-    text: "Available tones: 🎨\n\n1️⃣ **Professional** — Corporate, formal\n2️⃣ **Casual** — Relaxed, conversational\n3️⃣ **Inspirational** — Motivating, uplifting\n4️⃣ **Humorous** — Funny, witty *(Pro+)*\n5️⃣ **Storytelling** — Narrative, emotional *(Pro+)*\n\n**Free plan:** Tones 1, 2, 3\n**Pro/Business:** All 5 tones",
+    text: "Available tones: 🎨\n\n1️⃣ **Professional** — Corporate, formal\n2️⃣ **Casual** — Relaxed, conversational\n3️⃣ **Inspirational** — Motivating, uplifting\n4️⃣ **Humorous** — Funny, witty *(Pro+)*\n5️⃣ **Storytelling** — Narrative, emotional *(Pro+)*\n\n**Free plan:** Tones 1, 2, 3\n**Pro/Pro Max:** All 5 tones",
     quickReplies: ["View pricing plans 💳", "What content types?"],
   };
 
   if (q.includes("cancel") || q.includes("refund") || q.includes("billing") || q.includes("payment") || q.includes("charge")) return {
-    text: "Billing & Cancellation: 💰\n\n**Cancel anytime:**\n→ Dashboard → Billing → Manage Subscription\n→ Access continues until period ends\n\n**Payment:** Secure via **Stripe**\n→ Credit/Debit cards • Monthly billing\n\n**Refunds:** Within 7 days of purchase\n→ Email us with order details\n\nNeed help? Contact our team! 👇",
+    text: "Billing & Cancellation: 💰\n\n**Cancel anytime:**\n→ Dashboard → Billing → Manage Subscription\n→ Access continues until period ends\n\n**Payment:** Secure via **Razorpay**\n→ Credit/Debit cards • Monthly billing\n\n**Refunds:** Within 7 days of purchase\n→ Email us with order details\n\nNeed help? Contact our team! 👇",
     quickReplies: ["Contact support 📬", "View pricing plans 💳"],
     hasEmailButton: true,
   };

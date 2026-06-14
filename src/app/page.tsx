@@ -109,8 +109,8 @@ export default function LandingPage() {
       answer: "Yes! Our Free plan gives you 10 generations per month with 3 tone options across all platforms. No credit card required to get started.",
     },
     {
-      question: "What's the difference between Pro and Business?",
-      answer: "Pro gives you 50 generations/month, access to all 5 tones, 20+ pre-built templates, and priority AI generation. Business gives you unlimited generations, custom templates, and dedicated support — perfect for teams and agencies.",
+      question: "What's the difference between Pro and Pro Max?",
+      answer: "Pro gives you 50 generations/month, access to all 5 tones, 20+ pre-built templates, and priority AI generation. Pro Max gives you unlimited generations, custom templates, and dedicated support — perfect for teams and agencies.",
     },
     {
       question: "Can I generate content in Hindi or Hinglish?",
@@ -122,7 +122,7 @@ export default function LandingPage() {
     },
     {
       question: "Can I cancel my subscription anytime?",
-      answer: "Yes, you can cancel your Pro or Business subscription at any time from the Billing page. No hidden fees, no long-term commitments. Your access continues until the end of your billing period.",
+      answer: "Yes, you can cancel your Pro or Pro Max subscription at any time from the Billing page. No hidden fees, no long-term commitments. Your access continues until the end of your billing period.",
     },
   ];
 
@@ -411,12 +411,12 @@ export default function LandingPage() {
                 popular: true,
               },
               {
-                name: "Business",
+                name: "Pro Max",
                 price: "29",
                 description: "Unlimited power for teams",
                 features: ["Unlimited generations", "All 5 tones", "All platforms", "Content history", "20+ templates", "Custom templates", "Priority AI generation", "Content export", "Dedicated support"],
                 notIncluded: [],
-                cta: "Start Business Plan",
+                cta: "Start Pro Max Plan",
                 popular: false,
               },
             ].map((p, i) => (

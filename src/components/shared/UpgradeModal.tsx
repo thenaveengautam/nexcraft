@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Crown, Check, Zap, X, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -15,19 +15,53 @@ export default function UpgradeModal({ open, onClose }: UpgradeModalProps) {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleUpgrade = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/stripe/checkout", {
+      const res = await fetch("/api/razorpay/checkout", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: "pro" }),
       });
       const data = await res.json();
-      if (data.success && data.data?.url) {
-        window.location.href = data.data.url;
+      
+      if (data.success && data.data?.subscriptionId) {
+        const options = {
+          key: data.data.keyId,
+          subscription_id: data.data.subscriptionId,
+          name: "Nexcraft",
+          description: "Pro Plan Subscription",
+          handler: function (response: any) {
+            window.location.href = "/billing?success=true";
+          },
+          theme: {
+            color: "#8b5cf6",
+          },
+        };
+        // @ts-ignore
+        const rzp = new window.Razorpay(options);
+        rzp.on("payment.failed", function (response: any) {
+          toast({
+            title: "Payment Failed",
+            description: response.error.description,
+            variant: "destructive",
+          });
+        });
+        rzp.open();
       } else {
         toast({
           title: "Error",
-          description: "Failed to create checkout session",
+          description: data.error || "Failed to create checkout session",
           variant: "destructive",
         });
       }

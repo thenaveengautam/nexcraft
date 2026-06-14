@@ -28,7 +28,7 @@ export async function GET() {
       await user.save();
     }
 
-    const plan = user.plan as "free" | "pro" | "business";
+    const plan = user.plan as "free" | "pro" | "promax";
     const limit = PLAN_LIMITS[plan].generationsPerMonth;
 
     // Get total content count and favorites count

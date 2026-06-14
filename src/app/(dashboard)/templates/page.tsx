@@ -72,7 +72,7 @@ export default function TemplatesPage() {
   };
 
   const handleCreateTemplate = async () => {
-    if (plan !== "business") {
+    if (plan !== "promax") {
       setShowUpgrade(true);
       return;
     }
@@ -107,12 +107,12 @@ export default function TemplatesPage() {
             <p className="text-muted-foreground text-sm">One-click content generation with pre-built prompts</p>
           </div>
           <Button
-            onClick={() => plan === "business" ? setShowCreate(true) : setShowUpgrade(true)}
+            onClick={() => plan === "promax" ? setShowCreate(true) : setShowUpgrade(true)}
             className="btn-premium text-sm"
           >
             <Plus className="w-4 h-4 mr-2" />
             Create Template
-            {plan !== "business" && <Crown className="w-3 h-3 ml-2 text-amber-400" />}
+            {plan !== "promax" && <Crown className="w-3 h-3 ml-2 text-amber-400" />}
           </Button>
         </div>
       </motion.div>

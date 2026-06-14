@@ -47,9 +47,9 @@ export async function POST(req: Request) {
     const userId = (session.user as Record<string, unknown>).id;
     const user = await User.findById(userId);
 
-    if (!user || !PLAN_LIMITS[user.plan as "free" | "pro" | "business"].customTemplates) {
+    if (!user || !PLAN_LIMITS[user.plan as "free" | "pro" | "promax"].customTemplates) {
       return NextResponse.json(
-        { success: false, error: "Custom templates are a Business feature" },
+        { success: false, error: "Custom templates are a Pro Max feature" },
         { status: 403 }
       );
     }

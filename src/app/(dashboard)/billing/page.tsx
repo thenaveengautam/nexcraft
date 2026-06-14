@@ -42,13 +42,64 @@ function BillingContent() {
       .then((d) => { if (d.success) setUsage(d.data); });
   }, []);
 
-  const handleManageSubscription = async () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const handleUpgrade = async (targetPlan: string) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/stripe/checkout", { method: "POST" });
+      const res = await fetch("/api/razorpay/checkout", { 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: targetPlan }),
+      });
       const data = await res.json();
-      if (data.success && data.data?.url) {
-        window.location.href = data.data.url;
+      
+      if (data.success && data.data?.subscriptionId) {
+        const options = {
+          key: data.data.keyId,
+          subscription_id: data.data.subscriptionId,
+          name: "Nexcraft",
+          description: "Pro Plan Subscription",
+          handler: function () {
+            window.location.href = "/billing?success=true";
+          },
+          theme: { color: "#8b5cf6" },
+        };
+        // @ts-ignore
+        const rzp = new window.Razorpay(options);
+        rzp.on("payment.failed", function (response: any) {
+          toast({ title: "Payment Failed", description: response.error.description, variant: "destructive" });
+        });
+        rzp.open();
+      } else {
+        toast({ title: "Error", description: data.error || "Failed to create checkout session", variant: "destructive" });
+      }
+    } catch {
+      toast({ title: "Error", description: "Something went wrong", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCancelSubscription = async () => {
+    if (!confirm("Are you sure you want to cancel your subscription?")) return;
+    setLoading(true);
+    try {
+      const res = await fetch("/api/razorpay/cancel", { method: "POST" });
+      const data = await res.json();
+      if (data.success) {
+        toast({ title: "Success", description: "Subscription cancelled." });
+        window.location.reload();
+      } else {
+        toast({ title: "Error", description: data.error || "Failed to cancel", variant: "destructive" });
       }
     } catch {
       toast({ title: "Error", variant: "destructive" });
@@ -91,8 +142,8 @@ function BillingContent() {
       ],
     },
     {
-      id: "business",
-      name: "Business",
+      id: "promax",
+      name: "Pro Max",
       price: "29",
       description: "Unlimited power for teams",
       features: [
@@ -129,8 +180,8 @@ function BillingContent() {
               <h3 className="font-heading font-semibold">Current Plan</h3>
               {plan === "pro" ? (
                 <span className="pro-badge"><Crown className="w-3 h-3" /> PRO</span>
-              ) : plan === "business" ? (
-                <span className="pro-badge"><Crown className="w-3 h-3" /> BUSINESS</span>
+              ) : plan === "promax" ? (
+                <span className="pro-badge"><Crown className="w-3 h-3" /> PRO MAX</span>
               ) : (
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground">FREE</span>
               )}
@@ -155,21 +206,21 @@ function BillingContent() {
                 </div>
               </div>
             )}
-            {plan === "business" && (
+            {plan === "promax" && (
               <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
                 <Infinity className="w-4 h-4" /> Unlimited generations
               </p>
             )}
           </div>
-          {(plan === "pro" || plan === "business") && (
+          {(plan === "pro" || plan === "promax") && (
             <Button
-              onClick={handleManageSubscription}
+              onClick={handleCancelSubscription}
               disabled={loading}
               variant="outline"
-              className="bg-white/5 border-white/10"
+              className="bg-white/5 border-white/10 text-red-400 hover:text-red-300 hover:bg-red-500/10"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-              Manage Subscription
+              Cancel Subscription
             </Button>
           )}
         </div>
@@ -220,8 +271,8 @@ function BillingContent() {
               <Button disabled className="w-full h-11 bg-violet-500/10 text-violet-400 border border-violet-500/30">
                 <Check className="w-4 h-4 mr-2" /> Current Plan
               </Button>
-            ) : (p.id === "pro" && plan === "free") || (p.id === "business" && (plan === "free" || plan === "pro")) ? (
-              <Button onClick={handleManageSubscription} disabled={loading} className="w-full h-11 btn-premium">
+            ) : (p.id === "pro" && plan === "free") || (p.id === "promax" && (plan === "free" || plan === "pro")) ? (
+              <Button onClick={() => handleUpgrade(p.id)} disabled={loading} className="w-full h-11 btn-premium">
                 {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Zap className="w-4 h-4 mr-2" />}
                 Upgrade to {p.name}
               </Button>

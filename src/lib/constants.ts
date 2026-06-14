@@ -96,7 +96,7 @@ export const PLAN_LIMITS = {
     priorityGeneration: true,
     allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling"] as Tone[],
   },
-  business: {
+  promax: {
     generationsPerMonth: Infinity,
     templates: true,
     customTemplates: true,

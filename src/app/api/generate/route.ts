@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     }
 
     // Check usage limits
-    const plan = user.plan as "free" | "pro" | "business";
+    const plan = user.plan as "free" | "pro" | "promax";
     const limits = PLAN_LIMITS[plan];
 
     // Reset usage count if it's a new month

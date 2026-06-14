@@ -20,7 +20,7 @@ export type Tone = "professional" | "casual" | "humorous" | "inspirational" | "s
 export type Language = "english" | "hindi" | "hinglish";
 
 // Plan
-export type Plan = "free" | "pro" | "business";
+export type Plan = "free" | "pro" | "promax";
 
 // User interface
 export interface IUser {
@@ -31,8 +31,8 @@ export interface IUser {
   image?: string;
   emailVerified: boolean;
   plan: Plan;
-  stripeCustomerId?: string;
-  stripeSubscriptionId?: string;
+  razorpayCustomerId?: string;
+  razorpaySubscriptionId?: string;
   usageCount: number;
   usageResetDate: Date;
   createdAt: Date;

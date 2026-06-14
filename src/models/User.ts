@@ -7,9 +7,9 @@ const UserSchema = new Schema(
     password: { type: String }, // Only for email/password auth
     image: { type: String, default: "" },
     emailVerified: { type: Boolean, default: false },
-    plan: { type: String, enum: ["free", "pro", "business"], default: "free" },
-    stripeCustomerId: { type: String },
-    stripeSubscriptionId: { type: String },
+    plan: { type: String, enum: ["free", "pro", "promax"], default: "free" },
+    razorpayCustomerId: { type: String },
+    razorpaySubscriptionId: { type: String },
     usageCount: { type: Number, default: 0 },
     usageResetDate: { type: Date, default: () => new Date() },
   },
