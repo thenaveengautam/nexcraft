@@ -4,7 +4,7 @@ import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import { cancelSubscription } from "@/lib/razorpay";
 
-export async function POST(_req: Request) {
+export async function POST() {
   try {
     const session = await auth();
     if (!session?.user) {
