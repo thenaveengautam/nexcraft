@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ 
       success: true, 
       data: { 
-        subscriptionId: subscription.id,
+        subscriptionId: (subscription as any).id,
         keyId: process.env.RAZORPAY_KEY_ID
       } 
     });
