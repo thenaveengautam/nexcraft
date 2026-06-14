@@ -128,7 +128,7 @@ function BillingContent() {
     {
       id: "pro",
       name: "Pro",
-      price: "9",
+      price: "99",
       description: "For serious content creators",
       features: [
         { text: "50 generations per month", included: true },
@@ -144,7 +144,7 @@ function BillingContent() {
     {
       id: "promax",
       name: "Pro Max",
-      price: "29",
+      price: "199",
       description: "Unlimited power for teams",
       features: [
         { text: "Unlimited generations", included: true },
@@ -246,7 +246,7 @@ function BillingContent() {
               <h3 className="font-heading font-bold text-lg">{p.name}</h3>
               <p className="text-xs text-muted-foreground mt-1">{p.description}</p>
               <div className="flex items-baseline gap-1 mt-4">
-                <span className="text-4xl font-heading font-bold">${p.price}</span>
+                <span className="text-4xl font-heading font-bold">₹{p.price}</span>
                 <span className="text-muted-foreground text-sm">/month</span>
               </div>
             </div>

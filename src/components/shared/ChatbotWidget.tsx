@@ -69,7 +69,7 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 
   if (q.includes("plan") || q.includes("pric") || q.includes("cost") || q.includes("upgrade") || q.includes("subscri") || q.includes("offer") || q.includes("free tier")) return {
-    text: "Here are our plans: 💳\n\n🆓 **Free** — $0/month\n• 10 generations/month\n• 3 tones • All 4 platforms\n\n⚡ **Pro** — $9/month\n• 50 generations/month\n• All 5 tones • 20+ templates\n• Priority generation\n\n🏢 **Pro Max** — $29/month\n• Unlimited generations\n• Custom templates\n• Dedicated support\n\nUpgrade anytime from **Dashboard → Billing**!",
+    text: "Here are our plans: 💳\n\n🆓 **Free** — ₹0/month\n• 10 generations/month\n• 3 tones • All 4 platforms\n\n⚡ **Pro** — ₹99/month\n• 50 generations/month\n• All 5 tones • 20+ templates\n• Priority generation\n\n🏢 **Pro Max** — ₹199/month\n• Unlimited generations\n• Custom templates\n• Dedicated support\n\nUpgrade anytime from **Dashboard → Billing**!",
     quickReplies: ["What are templates?", "How do I upgrade?", "Cancel anytime?"],
   };
 
@@ -85,7 +85,7 @@ function getBotResponse(input: string): { text: string; quickReplies?: string[];
   };
 
   if (q.includes("template") || q.includes("pre-built") || q.includes("preset")) return {
-    text: "All about templates! 📋\n\n**Templates** are one-click content generators — they auto-fill platform, type, tone & topic.\n\n**20+ built-in templates:**\n📸 Instagram: Product Launch, Motivational Quote\n🐦 Twitter/X: Thread Starter, Trending Take\n💼 LinkedIn: Thought Leadership, Career Update\n🎬 YouTube: SEO Title, Shorts Hook\n\n**Who gets them:**\n• Free → No templates\n• Pro ($9/mo) → All 20+\n• Pro Max → Create custom ones!",
+    text: "All about templates! 📋\n\n**Templates** are one-click content generators — they auto-fill platform, type, tone & topic.\n\n**20+ built-in templates:**\n📸 Instagram: Product Launch, Motivational Quote\n🐦 Twitter/X: Thread Starter, Trending Take\n💼 LinkedIn: Thought Leadership, Career Update\n🎬 YouTube: SEO Title, Shorts Hook\n\n**Who gets them:**\n• Free → No templates\n• Pro (₹99/mo) → All 20+\n• Pro Max → Create custom ones!",
     quickReplies: ["View pricing plans 💳", "How to get started? 🚀"],
   };
 

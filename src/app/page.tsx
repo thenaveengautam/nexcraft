@@ -403,7 +403,7 @@ export default function LandingPage() {
               },
               {
                 name: "Pro",
-                price: "9",
+                price: "99",
                 description: "For serious content creators",
                 features: ["50 generations/month", "All 5 tones", "All platforms", "Content history", "20+ templates", "Priority AI generation", "Content export"],
                 notIncluded: ["Custom templates", "Unlimited generations"],
@@ -412,7 +412,7 @@ export default function LandingPage() {
               },
               {
                 name: "Pro Max",
-                price: "29",
+                price: "199",
                 description: "Unlimited power for teams",
                 features: ["Unlimited generations", "All 5 tones", "All platforms", "Content history", "20+ templates", "Custom templates", "Priority AI generation", "Content export", "Dedicated support"],
                 notIncluded: [],
@@ -437,7 +437,7 @@ export default function LandingPage() {
                 <h3 className="font-heading font-bold text-xl mb-1">{p.name}</h3>
                 <p className="text-xs text-muted-foreground mb-4">{p.description}</p>
                 <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-5xl font-heading font-bold">${p.price}</span>
+                  <span className="text-5xl font-heading font-bold">₹{p.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
 

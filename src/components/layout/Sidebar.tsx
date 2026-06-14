@@ -72,7 +72,7 @@ export default function Sidebar() {
           <p className="text-xs text-muted-foreground mb-3">Unlimited generations, all tones, custom templates</p>
           <Link href="/billing">
             <button className="w-full py-2 rounded-lg text-xs font-semibold btn-premium">
-              Upgrade — $9/mo
+              Upgrade — ₹99/mo
             </button>
           </Link>
         </div>
