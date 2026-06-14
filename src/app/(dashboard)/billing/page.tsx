@@ -73,9 +73,9 @@ function BillingContent() {
           },
           theme: { color: "#8b5cf6" },
         };
-        // @ts-ignore
+        // @ts-expect-error - Razorpay is loaded via script tag
         const rzp = new window.Razorpay(options);
-        rzp.on("payment.failed", function (response: any) {
+        rzp.on("payment.failed", function (response: { error: { description: string } }) {
           toast({ title: "Payment Failed", description: response.error.description, variant: "destructive" });
         });
         rzp.open();

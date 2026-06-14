@@ -41,16 +41,16 @@ export default function UpgradeModal({ open, onClose }: UpgradeModalProps) {
           subscription_id: data.data.subscriptionId,
           name: "Nexcraft",
           description: "Pro Plan Subscription",
-          handler: function (response: any) {
+          handler: function () {
             window.location.href = "/billing?success=true";
           },
           theme: {
             color: "#8b5cf6",
           },
         };
-        // @ts-ignore
+        // @ts-expect-error - Razorpay is loaded via script tag
         const rzp = new window.Razorpay(options);
-        rzp.on("payment.failed", function (response: any) {
+        rzp.on("payment.failed", function (response: { error: { description: string } }) {
           toast({
             title: "Payment Failed",
             description: response.error.description,
