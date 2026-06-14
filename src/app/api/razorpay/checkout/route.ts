@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     }
 
     // Create new checkout session (subscription)
-    const { subscription, customerId } = await createSubscription(userId, user.email, targetPlan);
+    const { subscription, customerId } = await createSubscription(userId, user.email, targetPlan, user.razorpayCustomerId);
 
     // Save razorpay customer ID if not exist
     if (!user.razorpayCustomerId) {
