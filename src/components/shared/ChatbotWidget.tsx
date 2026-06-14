@@ -169,7 +169,7 @@ export default function ChatbotWidget() {
   }]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [badge, setBadge] = useState(false);
+
   const [copied, setCopied] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -188,17 +188,14 @@ export default function ChatbotWidget() {
     }
   }, []);
 
-  useEffect(() => {
-    const t = setTimeout(() => { if (!isOpen) setBadge(true); }, 4000);
-    return () => clearTimeout(t);
-  }, [isOpen]);
+
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
   useEffect(() => {
-    if (isOpen) { setBadge(false); setTimeout(() => inputRef.current?.focus(), 300); }
+    if (isOpen) { setTimeout(() => inputRef.current?.focus(), 300); }
   }, [isOpen]);
 
   const handleCopyEmail = (e: React.MouseEvent) => {
