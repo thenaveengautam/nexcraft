@@ -35,7 +35,7 @@ export default function Sidebar() {
              <NexcraftLogo />
           </div>
           <div>
-            <h1 className="text-xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
+            <h1 className="text-xl font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
           </div>
         </Link>
       </div>
@@ -51,7 +51,7 @@ export default function Sidebar() {
               className={cn(
                 "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",
                 isActive
-                  ? "bg-violet-500/10 text-violet-400 border border-violet-500/20"
+                  ? "bg-zinc-900 text-zinc-400 border border-zinc-500/20"
                   : "text-muted-foreground hover:text-foreground hover:bg-white/5"
               )}
             >
@@ -64,14 +64,14 @@ export default function Sidebar() {
 
       {/* Pro Upgrade CTA */}
       <div className="p-4">
-        <div className="rounded-xl p-4 bg-gradient-to-br from-violet-600/10 to-cyan-500/10 border border-violet-500/20">
+        <div className="rounded-xl p-4 bg-gradient-to-br from-zinc-600/10 to-zinc-500/10 border border-zinc-500/20">
           <div className="flex items-center gap-2 mb-2">
             <Crown className="w-5 h-5 text-gold-500" />
             <span className="font-heading font-semibold text-sm">Upgrade to Pro</span>
           </div>
           <p className="text-xs text-muted-foreground mb-3">Unlimited generations, all tones, custom templates</p>
           <Link href="/billing">
-            <button className="w-full py-2 rounded-lg text-xs font-semibold btn-premium">
+            <button className="w-full py-2 rounded-lg text-xs font-semibold btn-apple">
               Upgrade — ₹99/mo
             </button>
           </Link>

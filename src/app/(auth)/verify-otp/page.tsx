@@ -192,7 +192,7 @@ function VerifyOtpContent() {
 
   return (
     <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden px-4">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zinc-600/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
       <motion.div
@@ -203,18 +203,18 @@ function VerifyOtpContent() {
       >
         <div className="text-center mb-8">
           <Link href="/">
-            <h1 className="text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
+            <h1 className="text-3xl font-heading font-bold text-zinc-100">Nexcraft</h1>
           </Link>
         </div>
 
         <div className="glass-card p-8 text-center">
-          <div className="w-16 h-16 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mx-auto mb-6">
-            <ShieldCheck className="w-8 h-8 text-violet-400" />
+          <div className="w-16 h-16 rounded-full bg-zinc-900 border border-zinc-500/20 flex items-center justify-center mx-auto mb-6">
+            <ShieldCheck className="w-8 h-8 text-zinc-400" />
           </div>
 
           <h2 className="text-2xl font-heading font-semibold mb-2">Verify your email</h2>
           <p className="text-muted-foreground text-sm mb-1">We sent a 6-digit code to</p>
-          <p className="text-violet-400 font-medium mb-6">{email ? maskEmail(email) : "your email"}</p>
+          <p className="text-zinc-400 font-medium mb-6">{email ? maskEmail(email) : "your email"}</p>
 
           {/* OTP Input */}
           <div className="flex justify-center gap-3 mb-6" onPaste={handlePaste}>
@@ -228,7 +228,7 @@ function VerifyOtpContent() {
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
-                className="w-12 h-14 text-center text-xl font-heading font-bold rounded-lg bg-white/5 border border-white/10 focus:border-violet-500/50 focus:outline-none focus:ring-2 focus:ring-violet-500/20 transition-all"
+                className="w-12 h-14 text-center text-xl font-heading font-bold rounded-lg bg-white/5 border border-white/10 focus:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 transition-all"
               />
             ))}
           </div>
@@ -246,7 +246,7 @@ function VerifyOtpContent() {
           <Button
             onClick={handleVerify}
             disabled={loading || otp.some((d) => !d)}
-            className="w-full h-11 btn-premium mb-4"
+            className="w-full h-11 btn-apple mb-4"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
             Verify Email
@@ -257,7 +257,7 @@ function VerifyOtpContent() {
             variant="ghost"
             onClick={handleResend}
             disabled={resendLoading || resendCooldown > 0}
-            className="text-sm text-muted-foreground hover:text-violet-400"
+            className="text-sm text-muted-foreground hover:text-zinc-400"
           >
             {resendLoading ? (
               <Loader2 className="w-3 h-3 animate-spin mr-2" />
@@ -268,7 +268,7 @@ function VerifyOtpContent() {
           </Button>
 
           <p className="text-xs text-muted-foreground mt-4">
-            Wrong email? <Link href="/register" className="text-violet-400 hover:text-violet-300">Go back</Link>
+            Wrong email? <Link href="/register" className="text-zinc-400 hover:text-zinc-300">Go back</Link>
           </p>
         </div>
       </motion.div>
@@ -280,7 +280,7 @@ export default function VerifyOtpPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center hero-gradient">
-        <Loader2 className="w-8 h-8 animate-spin text-violet-400" />
+        <Loader2 className="w-8 h-8 animate-spin text-zinc-400" />
       </div>
     }>
       <VerifyOtpContent />

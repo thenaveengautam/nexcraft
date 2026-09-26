@@ -108,11 +108,11 @@ export default function TemplatesPage() {
           </div>
           <Button
             onClick={() => plan === "promax" ? setShowCreate(true) : setShowUpgrade(true)}
-            className="btn-premium text-sm"
+            className="btn-apple text-sm"
           >
             <Plus className="w-4 h-4 mr-2" />
             Create Template
-            {plan !== "promax" && <Crown className="w-3 h-3 ml-2 text-amber-400" />}
+            {plan !== "promax" && <Crown className="w-3 h-3 ml-2 text-black" />}
           </Button>
         </div>
       </motion.div>
@@ -125,7 +125,7 @@ export default function TemplatesPage() {
             placeholder="Search templates..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 bg-white/5 border-white/10 focus:border-violet-500/50"
+            className="pl-10 bg-white/5 border-white/10 focus:border-zinc-700"
           />
         </div>
       </motion.div>
@@ -138,13 +138,13 @@ export default function TemplatesPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.03 }}
-            className="glass-card p-5 cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
+            className="glass-card p-5 cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
             onClick={() => handleUseTemplate(template)}
           >
             <div className="flex items-start justify-between mb-3">
               <span className="text-2xl">{template.icon}</span>
               {!template.isDefault && (
-                <span className="text-xs px-2 py-0.5 rounded bg-violet-500/10 text-violet-400">Custom</span>
+                <span className="text-xs px-2 py-0.5 rounded bg-zinc-900 text-zinc-400">Custom</span>
               )}
             </div>
             <h3 className="font-heading font-semibold text-sm mb-1">{template.name}</h3>
@@ -153,7 +153,7 @@ export default function TemplatesPage() {
               <span className="text-xs px-2 py-0.5 rounded bg-white/5 capitalize">{template.platform}</span>
               <span className="text-xs px-2 py-0.5 rounded bg-white/5 capitalize">{template.tone}</span>
             </div>
-            <div className="flex items-center gap-1 mt-3 text-xs text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-1 mt-3 text-xs text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">
               Use template <ArrowRight className="w-3 h-3" />
             </div>
           </motion.div>
@@ -192,7 +192,7 @@ export default function TemplatesPage() {
                 className="bg-white/5 border-white/10 mt-1 min-h-[80px]"
               />
             </div>
-            <Button onClick={handleCreateTemplate} disabled={createLoading || !newTemplate.name || !newTemplate.topic} className="w-full btn-premium">
+            <Button onClick={handleCreateTemplate} disabled={createLoading || !newTemplate.name || !newTemplate.topic} className="w-full btn-apple">
               {createLoading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
               Create Template
             </Button>

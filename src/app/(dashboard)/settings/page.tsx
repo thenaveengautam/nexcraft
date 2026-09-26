@@ -30,7 +30,7 @@ export default function SettingsPage() {
         <div className="flex items-center gap-4">
           <Avatar className="w-16 h-16 border-2 border-white/10">
             <AvatarImage src={(user?.image as string) || ""} />
-            <AvatarFallback className="bg-violet-500/10 text-violet-400 text-xl font-heading">
+            <AvatarFallback className="bg-zinc-900 text-zinc-400 text-xl font-heading">
               {(user?.name as string)?.charAt(0)?.toUpperCase() || "U"}
             </AvatarFallback>
           </Avatar>

@@ -97,7 +97,7 @@ export default function DashboardPage() {
         transition={{ duration: 0.4 }}
       >
         <h1 className="text-3xl font-heading font-bold mb-1">
-          Welcome back, <span className="text-gradient">{(user?.name as string)?.split(" ")[0] || "Creator"}</span> 👋
+          Welcome back, <span className="text-zinc-100">{(user?.name as string)?.split(" ")[0] || "Creator"}</span> 👋
         </h1>
         <p className="text-muted-foreground">Ready to craft some amazing content?</p>
       </motion.div>
@@ -147,9 +147,9 @@ export default function DashboardPage() {
             />
           </div>
           {usage.percentage >= 80 && (
-            <p className="text-xs text-amber-400 mt-2 flex items-center gap-1">
+            <p className="text-xs text-zinc-400 mt-2 flex items-center gap-1">
               <Zap className="w-3 h-3" />
-              Running low! <Link href="/billing" className="text-violet-400 underline">Upgrade to Pro</Link> for unlimited.
+              Running low! <Link href="/billing" className="text-zinc-400 underline">Upgrade to Pro</Link> for unlimited.
             </p>
           )}
         </motion.div>
@@ -165,12 +165,12 @@ export default function DashboardPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {quickActions.map((action) => (
             <Link key={action.label} href={action.href}>
-              <div className="glass-card p-4 flex items-center gap-3 cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10">
+              <div className="glass-card p-4 flex items-center gap-3 cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10">
                 <span className="text-2xl">{action.emoji}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{action.label}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-violet-400 transition-colors" />
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-zinc-400 transition-colors" />
               </div>
             </Link>
           ))}
@@ -186,7 +186,7 @@ export default function DashboardPage() {
         <div 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="relative overflow-hidden rounded-2xl p-[1px] text-center group shadow-2xl hover:shadow-violet-500/20 transition-[box-shadow,transform] duration-200 ease-out"
+          className="relative overflow-hidden rounded-2xl p-[1px] text-center group shadow-2xl hover:shadow-zinc-500/20 transition-[box-shadow,transform] duration-200 ease-out"
         >
           {/* Animated Spinning Border Beams */}
           <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#00000000_50%,#00000000_80%,#8b5cf6_100%)] animate-[spin_4s_linear_infinite]" />
@@ -199,19 +199,19 @@ export default function DashboardPage() {
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_80%,transparent_100%)] pointer-events-none" />
 
             {/* Moving Gradient Orbs */}
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-violet-600/30 rounded-full blur-[120px] animate-pulse pointer-events-none" />
+            <div className="absolute -top-24 -left-24 w-96 h-96 bg-zinc-600/30 rounded-full blur-[120px] animate-pulse pointer-events-none" />
             <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-600/20 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: "2s" }} />
 
             <div className="relative z-10 w-full">
               <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 mb-6 shadow-lg shadow-black/50 backdrop-blur-md">
-                <Sparkles className="w-8 h-8 text-violet-400 animate-[pulse_3s_ease-in-out_infinite]" />
+                <Sparkles className="w-8 h-8 text-zinc-400 animate-[pulse_3s_ease-in-out_infinite]" />
               </div>
-              <h2 className="text-3xl font-heading font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-violet-200 to-white animate-pulse">Start Creating</h2>
+              <h2 className="text-3xl font-heading font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-white animate-pulse">Start Creating</h2>
               <p className="text-muted-foreground text-sm md:text-base mb-8 max-w-md mx-auto leading-relaxed">
                 Generate scroll-stopping content for any social media platform in seconds with AI.
               </p>
               <Link href="/generate">
-                <button className="btn-premium px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-violet-500/40">
+                <button className="btn-apple px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-zinc-500/40">
                   Open Generator <ArrowRight className="w-4 h-4 ml-2 inline transition-transform group-hover:translate-x-1" />
                 </button>
               </Link>

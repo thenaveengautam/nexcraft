@@ -150,19 +150,19 @@ export default function LandingPage() {
                 className="text-sm text-white hover:text-white transition-colors relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
             <Link href="/login" className="hidden sm:block">
-              <Button variant="ghost" className="text-sm text-white/90 hover:text-white bg-white/[0.03] border border-violet-500/20 hover:bg-violet-500/10 hover:border-violet-500/70 hover:shadow-lg hover:shadow-violet-500/10 rounded-lg px-5 transition-all duration-300">
+              <Button variant="ghost" className="h-11 text-sm font-medium text-white/90 hover:text-white bg-white/[0.03] border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(255,255,255,0.05)] rounded-full px-8 transition-all duration-300">
                 Sign In
               </Button>
             </Link>
             <Link href="/register" className="hidden sm:block">
-              <Button className="btn-premium text-sm px-5">
+              <Button className="btn-premium rounded-full h-11 text-sm px-6">
                 Get Started <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
@@ -213,20 +213,13 @@ export default function LandingPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative pt-24 pb-20 px-4 sm:px-6 hero-gradient overflow-hidden">
-        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" />
-        <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[120px] animate-float pointer-events-none will-change-transform transform-gpu" style={{ animationDelay: "3s" }} />
+
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div {...fadeIn} transition={{ duration: 0.6 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-sm text-indigo-300 mb-6 hover:bg-indigo-500/15 transition-colors cursor-default">
-              <Sparkles className="w-3.5 h-3.5" />
-              AI-Powered Content Generator
-            </div>
-          </motion.div>
 
-          <motion.h1 {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold leading-tight mb-6">
+          <motion.h1 {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl lg:text-[5.5rem] font-heading font-bold leading-tight mb-6">
             Craft Content That{" "}
-            <span className="text-gradient">Glows</span>
+            <span className="text-zinc-100">Glows</span>
           </motion.h1>
 
           <motion.p {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -240,7 +233,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <a href="#features">
-              <Button variant="outline" className="h-13 px-8 text-base bg-white/[0.01] border-violet-500/30 text-white hover:bg-violet-500/10 hover:border-violet-500/70 hover:shadow-lg hover:shadow-violet-500/10 transition-all duration-300">
+              <Button variant="outline" className="h-13 px-8 text-base bg-white/[0.02] border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] rounded-full transition-all duration-300">
                 See Features
               </Button>
             </a>
@@ -288,10 +281,10 @@ export default function LandingPage() {
                 transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <div className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center bg-violet-500/10 group-hover:bg-violet-500/20 transition-colors">
-                  <stat.icon className="w-5 h-5 text-violet-400" />
+                <div className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 group-hover:bg-indigo-500/20 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-all duration-500">
+                  <stat.icon className="w-5 h-5 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all duration-500" />
                 </div>
-                <p className="text-3xl sm:text-4xl font-heading font-bold text-gradient">
+                <p className="text-3xl sm:text-4xl font-heading font-bold text-zinc-100">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
@@ -306,7 +299,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeIn} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-              Everything You Need to <span className="text-gradient">Create & Scale</span>
+              Everything You Need to <span className="text-zinc-100">Create & Scale</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Powerful features designed for modern content creators, marketers, and businesses
@@ -328,7 +321,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 group cursor-default transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
+                className="glass-card p-6 group cursor-default transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
                 style={{ overflow: "visible" }}
               >
                 <div
@@ -351,7 +344,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div {...fadeIn} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-              How It <span className="text-gradient">Works</span>
+              How It <span className="text-zinc-100">Works</span>
             </h2>
             <p className="text-muted-foreground">Three simple steps to viral content</p>
           </motion.div>
@@ -371,7 +364,7 @@ export default function LandingPage() {
                 className="text-center group cursor-default"
               >
                 <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">{item.emoji}</div>
-                <div className="text-xs text-violet-400 font-heading font-bold mb-2">STEP {item.step}</div>
+                <div className="text-xs text-zinc-400 font-heading font-bold mb-2">STEP {item.step}</div>
                 <h3 className="font-heading font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
@@ -385,7 +378,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <motion.div {...fadeIn} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-              Simple, Transparent <span className="text-gradient">Pricing</span>
+              Simple, Transparent <span className="text-zinc-100">Pricing</span>
             </h2>
             <p className="text-muted-foreground">Start free. Upgrade when you need more power.</p>
           </motion.div>
@@ -426,11 +419,11 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className={`glass-card p-8 relative overflow-visible transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10 cursor-default`}
+                className={`glass-card p-8 relative overflow-visible transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10 cursor-default`}
               >
                 {p.popular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                    <span className="pro-badge px-4 py-1.5 text-xs whitespace-nowrap shadow-lg shadow-violet-500/20">⭐ MOST POPULAR</span>
+                    <span className="pro-badge px-4 py-1.5 text-xs whitespace-nowrap shadow-lg shadow-zinc-500/20">⭐ MOST POPULAR</span>
                   </div>
                 )}
 
@@ -473,7 +466,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div {...fadeIn} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-              Loved by <span className="text-gradient">Creators</span>
+              Loved by <span className="text-zinc-100">Creators</span>
             </h2>
             <p className="text-muted-foreground">See what our users have to say</p>
           </motion.div>
@@ -493,21 +486,26 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="glass-card p-6 transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10 cursor-default group"
+                className="relative overflow-hidden rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/5 p-8 transition-all duration-500 hover:border-white/20 hover:bg-zinc-900/60 cursor-default group"
               >
-                <div className="flex mb-3">
+                {/* Subtle top glow on hover */}
+                <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex mb-6 gap-1">
                   {[...Array(testimonial.stars)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400 group-hover:scale-110 transition-transform" style={{ transitionDelay: `${j * 30}ms` }} />
+                    <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400 opacity-90" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">&quot;{testimonial.text}&quot;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-violet-500/15 flex items-center justify-center text-xs font-heading font-bold text-violet-300">
+
+                <p className="text-base text-zinc-300 leading-relaxed mb-8 font-light tracking-wide">&quot;{testimonial.text}&quot;</p>
+
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center text-xs font-medium text-zinc-200 shadow-inner">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <p className="text-sm font-medium">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-sm font-semibold text-zinc-100 tracking-wide">{testimonial.name}</p>
+                    <p className="text-xs text-zinc-500 uppercase tracking-widest mt-0.5">{testimonial.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -521,7 +519,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeIn} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-              Frequently Asked <span className="text-gradient">Questions</span>
+              Frequently Asked <span className="text-zinc-100">Questions</span>
             </h2>
             <p className="text-muted-foreground">Everything you need to know about Nexcraft</p>
           </motion.div>
@@ -534,17 +532,17 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
+                className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left group"
                 >
                   <span className="font-heading font-medium text-base pr-4 group-hover:text-white transition-colors">{faq.question}</span>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === i ? 'bg-violet-500/20 rotate-180' : 'bg-white/5'
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === i ? 'bg-zinc-800 rotate-180' : 'bg-white/5'
                     }`}>
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-colors duration-300 ${openFaq === i ? "text-violet-400" : "text-muted-foreground"
+                      className={`w-3.5 h-3.5 transition-colors duration-300 ${openFaq === i ? "text-zinc-400" : "text-muted-foreground"
                         }`}
                     />
                   </div>
@@ -579,15 +577,15 @@ export default function LandingPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card p-12 transition-all duration-300 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10">
+            <div className="glass-card p-12 transition-all duration-300 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
-                Ready to <span className="text-gradient">Glow Up</span> Your Content?
+                Ready to <span className="text-zinc-100">Glow Up</span> Your Content?
               </h2>
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
                 Join thousands of creators using AI to craft scroll-stopping social media content in seconds.
               </p>
               <Link href="/register">
-                <Button className="btn-premium h-13 px-10 text-base">
+                <Button className="btn-premium rounded-full h-13 px-10 text-base">
                   Get Started Free <Sparkles className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
@@ -598,7 +596,7 @@ export default function LandingPage() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer id="footer" className="border-t border-white/5 pt-16 pb-24 px-4 sm:px-6">
+      <footer id="footer" className="border-t border-white/5 pt-16 pb-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Footer Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
@@ -611,15 +609,7 @@ export default function LandingPage() {
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
                 AI-powered content generator for social media. Craft content that glows.
               </p>
-              <a
-                href="#"
-                onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 text-xs text-violet-400 hover:text-violet-300 transition-colors"
-                title="Click to copy email"
-              >
-                {copied ? <CheckCircle className="w-3.5 h-3.5 text-green-400" /> : <Globe className="w-3.5 h-3.5" />}
-                {copied ? <span className="text-green-400">Copied to clipboard!</span> : "contact@trynaveen.com"}
-              </a>
+
             </div>
 
             {/* Product */}

@@ -36,7 +36,7 @@ export default function Topbar() {
           </div>
         ) : (
           <Link href="/billing">
-            <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:text-violet-400 hover:border-violet-500/30 transition-all cursor-pointer">
+            <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:text-zinc-400 hover:border-zinc-500/30 transition-all cursor-pointer">
               Free Plan
             </span>
           </Link>
@@ -50,9 +50,9 @@ export default function Topbar() {
         {/* User Menu */}
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
-            <Avatar className="w-9 h-9 border-2 border-white/10 hover:border-violet-500/30 transition-all">
+            <Avatar className="w-9 h-9 border-2 border-white/10 hover:border-zinc-500/30 transition-all">
               <AvatarImage src={(user?.image as string) || ""} />
-              <AvatarFallback className="bg-violet-500/10 text-violet-400 text-sm font-heading">
+              <AvatarFallback className="bg-zinc-900 text-zinc-400 text-sm font-heading">
                 {(user?.name as string)?.charAt(0)?.toUpperCase() || "U"}
               </AvatarFallback>
             </Avatar>

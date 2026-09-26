@@ -85,7 +85,7 @@ function ResetPasswordContent() {
           <h2 className="text-xl font-heading font-semibold mb-2 text-red-400">Invalid Reset Link</h2>
           <p className="text-muted-foreground text-sm mb-4">This password reset link is invalid or has expired.</p>
           <Link href="/forgot-password">
-            <Button className="btn-premium">Request New Link</Button>
+            <Button className="btn-apple">Request New Link</Button>
           </Link>
         </div>
       </div>
@@ -94,7 +94,7 @@ function ResetPasswordContent() {
 
   return (
     <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden px-4">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zinc-600/10 rounded-full blur-3xl animate-float" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ function ResetPasswordContent() {
             <div className="flex items-center justify-center scale-110">
               <NexcraftLogo />
             </div>
-            <h1 className="text-3xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
+            <h1 className="text-3xl font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
           </Link>
         </div>
 
@@ -138,7 +138,7 @@ function ResetPasswordContent() {
                       placeholder="••••••••"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
-                      className="pl-10 pr-10 h-11 bg-white/5 border-white/10 focus:border-violet-500/50"
+                      className="pl-10 pr-10 h-11 bg-white/5 border-white/10 focus:border-zinc-700"
                       required
                     />
                     <button
@@ -178,7 +178,7 @@ function ResetPasswordContent() {
                       placeholder="••••••••"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="pl-10 h-11 bg-white/5 border-white/10 focus:border-violet-500/50"
+                      className="pl-10 h-11 bg-white/5 border-white/10 focus:border-zinc-700"
                       required
                     />
                   </div>
@@ -198,7 +198,7 @@ function ResetPasswordContent() {
                 <Button
                   type="submit"
                   disabled={loading || !passwordChecks.every((c) => c.met)}
-                  className="w-full h-11 btn-premium"
+                  className="w-full h-11 btn-apple"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                   Reset Password
@@ -216,7 +216,7 @@ export default function ResetPasswordPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center hero-gradient">
-        <Loader2 className="w-8 h-8 animate-spin text-violet-400" />
+        <Loader2 className="w-8 h-8 animate-spin text-zinc-400" />
       </div>
     }>
       <ResetPasswordContent />

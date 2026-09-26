@@ -160,7 +160,7 @@ function GenerateContent() {
                   onClick={() => handlePlatformChange(p.id)}
                   className={cn(
                     "glass-card p-3 flex items-center gap-3 transition-all duration-300 cursor-pointer",
-                    platform === p.id ? "platform-selected" : "hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
+                    platform === p.id ? "platform-selected" : "hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
                   )}
                 >
                   <div
@@ -186,7 +186,7 @@ function GenerateContent() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all",
                     contentType === ct.id
-                      ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                      ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
                       : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                   )}
                 >
@@ -210,7 +210,7 @@ function GenerateContent() {
                       "px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-1.5",
                       !isAllowed && "opacity-50",
                       tone === t.id
-                        ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                        ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
                         : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                     )}
                   >
@@ -234,7 +234,7 @@ function GenerateContent() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2",
                     language === l.id
-                      ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
+                      ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
                       : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                   )}
                 >
@@ -252,7 +252,7 @@ function GenerateContent() {
               placeholder="E.g., Launch of our new AI productivity app that helps freelancers save 10 hours per week..."
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              className="min-h-[120px] bg-white/5 border-white/10 focus:border-violet-500/50 resize-none"
+              className="min-h-[120px] bg-white/5 border-white/10 focus:border-zinc-700 resize-none"
             />
             <div className="flex justify-between mt-2">
               <p className="text-xs text-muted-foreground">{topic.length} characters</p>
@@ -271,7 +271,7 @@ function GenerateContent() {
                 "flex-1 h-12 font-heading font-semibold text-sm",
                 generating
                   ? "bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30"
-                  : "btn-premium"
+                  : "btn-apple"
               )}
             >
               {generating ? (
@@ -297,7 +297,7 @@ function GenerateContent() {
         >
           <div className="sticky top-24">
             <div
-              className="relative overflow-hidden rounded-2xl min-h-[500px] flex flex-col p-[1px] group shadow-2xl hover:shadow-violet-500/20 transition-all duration-700 bg-[#09090b]"
+              className="relative overflow-hidden rounded-2xl min-h-[500px] flex flex-col p-[1px] group shadow-2xl hover:shadow-zinc-500/20 transition-all duration-700 bg-[#09090b]"
             >
               {/* Animated Spinning Border Beams */}
               <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#00000000_50%,#00000000_80%,#8b5cf6_100%)] animate-[spin_4s_linear_infinite]" />
@@ -308,14 +308,14 @@ function GenerateContent() {
 
                 {/* Scanline Animation Overlay */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl z-20 mix-blend-overlay">
-                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-transparent via-violet-500/20 to-transparent -translate-y-full animate-[scan_6s_ease-in-out_infinite]" />
+                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-transparent via-zinc-500/20 to-transparent -translate-y-full animate-[scan_6s_ease-in-out_infinite]" />
                 </div>
 
                 {/* Dot Matrix Background */}
                 <div className="absolute inset-0 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_40%,transparent_100%)] pointer-events-none" />
 
                 {/* Glowing Top Corner */}
-                <div className="absolute -top-32 -right-32 w-64 h-64 bg-violet-500/20 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute -top-32 -right-32 w-64 h-64 bg-zinc-800 rounded-full blur-[80px] pointer-events-none" />
 
                 {/* Header */}
                 <div className="relative z-10 flex items-center justify-between p-4 border-b border-white/5 bg-white/[0.02] backdrop-blur-md">
@@ -328,7 +328,7 @@ function GenerateContent() {
                     </div>
 
                     <div className="flex items-center gap-2 sm:border-l sm:border-white/10 sm:pl-4">
-                      <Sparkles className="w-4 h-4 text-violet-400" />
+                      <Sparkles className="w-4 h-4 text-zinc-400" />
                       <span className="text-sm font-heading font-semibold text-white/90">Output Terminal</span>
                     </div>
                     {generating && (
@@ -371,9 +371,9 @@ function GenerateContent() {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center h-full text-center relative z-10">
-                      <div className="w-20 h-20 rounded-full bg-violet-500/5 flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(139,92,246,0.1)] relative group-hover:scale-110 transition-transform duration-700">
-                        <div className="absolute inset-0 rounded-full border border-violet-500/20 animate-[spin_10s_linear_infinite]" />
-                        <Sparkles className="w-10 h-10 text-violet-400/80 animate-[pulse_3s_ease-in-out_infinite]" />
+                      <div className="w-20 h-20 rounded-full bg-zinc-500/5 flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(139,92,246,0.1)] relative group-hover:scale-110 transition-transform duration-700">
+                        <div className="absolute inset-0 rounded-full border border-zinc-500/20 animate-[spin_10s_linear_infinite]" />
+                        <Sparkles className="w-10 h-10 text-zinc-400/80 animate-[pulse_3s_ease-in-out_infinite]" />
                       </div>
                       <p className="text-base font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 animate-[pulse_4s_ease-in-out_infinite] tracking-wide">
                         Your AI-generated content will appear here
@@ -420,7 +420,7 @@ function GenerateContent() {
 
 export default function GeneratePage() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-[50vh]"><Loader2 className="w-8 h-8 animate-spin text-violet-400" /></div>}>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[50vh]"><Loader2 className="w-8 h-8 animate-spin text-zinc-400" /></div>}>
       <GenerateContent />
     </Suspense>
   );

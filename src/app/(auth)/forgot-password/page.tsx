@@ -51,7 +51,7 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden px-4">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zinc-600/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
       <motion.div
@@ -63,7 +63,7 @@ export default function ForgotPasswordPage() {
         <div className="flex justify-center mb-4 sm:mb-6">
           <Link href="/" className="flex items-center gap-1.5 group">
             <NexcraftLogo />
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-100">Nexcraft</h1>
           </Link>
         </div>
 
@@ -75,7 +75,7 @@ export default function ForgotPasswordPage() {
               </div>
               <h2 className="text-2xl font-heading font-semibold mb-2">Check your email</h2>
               <p className="text-muted-foreground text-sm mb-6">
-                If an account exists with <span className="text-violet-400">{email}</span>, we&apos;ve sent a password reset link.
+                If an account exists with <span className="text-zinc-400">{email}</span>, we&apos;ve sent a password reset link.
               </p>
               <p className="text-xs text-muted-foreground mb-6">
                 Didn&apos;t receive it? Check your spam folder or try again in a few minutes.
@@ -105,7 +105,7 @@ export default function ForgotPasswordPage() {
                       placeholder="you@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10 h-11 bg-white/5 border-white/10 focus:border-violet-500/50"
+                      className="pl-10 h-11 bg-white/5 border-white/10 focus:border-zinc-700"
                       required
                     />
                   </div>
@@ -114,7 +114,7 @@ export default function ForgotPasswordPage() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full h-11 btn-premium"
+                  className="w-full h-11 btn-apple"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                   Send Reset Link
@@ -122,7 +122,7 @@ export default function ForgotPasswordPage() {
               </form>
 
               <p className="text-center text-sm text-muted-foreground mt-6">
-                <Link href="/login" className="text-violet-400 hover:text-violet-300 transition-colors inline-flex items-center gap-1">
+                <Link href="/login" className="text-zinc-400 hover:text-zinc-300 transition-colors inline-flex items-center gap-1">
                   <ArrowLeft className="w-3 h-3" />
                   Back to Login
                 </Link>

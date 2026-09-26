@@ -13,8 +13,8 @@ function NxAvatar() {
         width: 42,
         height: 42,
         borderRadius: 12,
-        background: "linear-gradient(135deg, #4f1fb8 0%, #7c3aed 60%, #a855f7 100%)",
-        boxShadow: "0 4px 16px rgba(124,58,237,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
+        background: "linear-gradient(135deg, #27272a 0%, #18181b 60%, #09090b 100%)",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
         fontSize: "1.15rem",
         letterSpacing: "-0.5px",
       }}
@@ -22,9 +22,9 @@ function NxAvatar() {
       N
       <span
         className="absolute flex items-center justify-center bg-[#1a1a2e] rounded-full"
-        style={{ width: 16, height: 16, bottom: -4, right: -4, border: "2px solid #6d28d9" }}
+        style={{ width: 16, height: 16, bottom: -4, right: -4, border: "2px solid #27272a" }}
       >
-        <Zap className="text-violet-400" style={{ width: 9, height: 9 }} fill="currentColor" />
+        <Zap className="text-zinc-400" style={{ width: 9, height: 9 }} fill="currentColor" />
       </span>
     </div>
   );
@@ -243,11 +243,11 @@ export default function ChatbotWidget() {
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group"
-            style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}
+            style={{ background: "linear-gradient(135deg, #ffffff, #e4e4e7)" }}
           >
-            <MessageCircle className="w-6 h-6 text-white" />
-            <span className="absolute inset-0.5 rounded-full animate-ping opacity-50" style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }} />
-            <span className="absolute -inset-1.5 rounded-full border-2 border-violet-500/30 animate-pulse" />
+            <MessageCircle className="w-6 h-6 text-black" />
+            <span className="absolute inset-0.5 rounded-full animate-ping opacity-50" style={{ background: "linear-gradient(135deg, #ffffff, #e4e4e7)" }} />
+            <span className="absolute -inset-1.5 rounded-full border-2 border-zinc-500/30 animate-pulse" />
             <span className="absolute bottom-full right-0 mb-4 px-4 py-2 rounded-xl text-sm font-medium text-white bg-gray-900/95 border border-white/10 shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none backdrop-blur-sm">
               Chat with Nexcraft ✨
               <span className="absolute top-full right-5 border-[10px] border-transparent border-t-gray-900/95" />
@@ -270,21 +270,21 @@ export default function ChatbotWidget() {
               width: "380px",
               maxWidth: "calc(100vw - 1.5rem)",
               height: "min(600px, calc(100dvh - 3rem))",
-              boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,58,237,0.1)",
+              boxShadow: "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05)",
               ...(viewportHeight > 0 ? { "--vvp-height": `${viewportHeight}px` } as React.CSSProperties : {}),
             }}
           >
             {/* Header */}
-            <div className="shrink-0 px-4 py-3.5 flex items-center gap-3" style={{ background: "linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%)" }}>
+            <div className="shrink-0 px-4 py-3.5 flex items-center gap-3" style={{ background: "linear-gradient(135deg, #18181b 0%, #09090b 100%)" }}>
               <div className="relative shrink-0">
                 <NxAvatar />
-                <span className="absolute w-3 h-3 rounded-full bg-green-400 border-2 border-violet-800 z-10" style={{ bottom: -2, right: -2 }} />
+                <span className="absolute w-3 h-3 rounded-full bg-green-400 border-2 border-zinc-800 z-10" style={{ bottom: -2, right: -2 }} />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-white leading-none mb-1">Nexcraft Support</p>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-[11px] text-violet-200">Online · Replies instantly</span>
+                  <span className="text-[11px] text-zinc-200">Online · Replies instantly</span>
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors shrink-0">
@@ -304,7 +304,7 @@ export default function ChatbotWidget() {
                 >
                   {/* Bubble */}
                   <div className={`max-w-[82%] px-4 py-2.5 rounded-2xl text-[13px] leading-relaxed ${msg.role === "user"
-                      ? "rounded-br-sm text-white bg-violet-600/20 border border-violet-500/20"
+                      ? "rounded-br-sm text-white bg-zinc-600/20 border border-zinc-500/20"
                       : "rounded-bl-sm text-foreground bg-white/5 border border-white/5"
                     }`}>
                     {msg.role === "bot" ? renderMessage(msg.text) : msg.text}
@@ -315,7 +315,7 @@ export default function ChatbotWidget() {
                     <motion.a
                       initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
                       href="#" onClick={handleCopyEmail}
-                      className="mt-2 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-[12px] font-medium transition-all bg-violet-500/15 border border-violet-500/20 text-violet-300 hover:bg-violet-500/25"
+                      className="mt-2 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-[12px] font-medium transition-all bg-zinc-500/15 border border-zinc-500/20 text-zinc-300 hover:bg-zinc-500/25"
                     >
                       <Mail className="w-3.5 h-3.5" />
                       {copied ? <span className="text-green-400">✓ Copied to clipboard!</span> : "contact@trynaveen.com"}
@@ -331,7 +331,7 @@ export default function ChatbotWidget() {
                           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}
                           onClick={() => sendMessage(qr)}
                           disabled={isTyping}
-                          className="px-3 py-1.5 rounded-full text-[11px] font-medium transition-all hover:scale-105 disabled:opacity-50 bg-violet-500/10 border border-violet-500/20 text-violet-300 hover:bg-violet-500/20"
+                          className="px-3 py-1.5 rounded-full text-[11px] font-medium transition-all hover:scale-105 disabled:opacity-50 bg-zinc-900 border border-zinc-500/20 text-zinc-300 hover:bg-zinc-800"
                         >
                           {qr}
                         </motion.button>
@@ -344,7 +344,7 @@ export default function ChatbotWidget() {
                     <span className="text-[10px] text-gray-600">{msg.time}</span>
                     {msg.role === "user" && (
                       msg.isRead
-                        ? <CheckCheck className="w-3 h-3 text-violet-400" />
+                        ? <CheckCheck className="w-3 h-3 text-zinc-400" />
                         : <Check className="w-3 h-3 text-gray-600" />
                     )}
                   </div>
@@ -357,7 +357,7 @@ export default function ChatbotWidget() {
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-start">
                     <div className="px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5 bg-white/5 border border-white/5">
                       {[0, 150, 300].map((delay) => (
-                        <span key={delay} className="w-2 h-2 rounded-full bg-violet-400" style={{ animation: `bounce 1s ${delay}ms infinite` }} />
+                        <span key={delay} className="w-2 h-2 rounded-full bg-zinc-400" style={{ animation: `bounce 1s ${delay}ms infinite` }} />
                       ))}
                     </div>
                   </motion.div>
@@ -376,7 +376,7 @@ export default function ChatbotWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 h-10 px-4 rounded-xl text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-violet-500/40 transition-colors bg-white/5 border border-white/[0.08]"
+                  className="flex-1 h-10 px-4 rounded-xl text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-zinc-500/40 transition-colors bg-white/5 border border-white/[0.08]"
                 />
                 <motion.button
                   type="submit"
@@ -384,9 +384,9 @@ export default function ChatbotWidget() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all disabled:opacity-30"
-                  style={{ background: input.trim() ? "linear-gradient(135deg, #7c3aed, #a855f7)" : "rgba(255,255,255,0.05)" }}
+                  style={{ background: input.trim() ? "linear-gradient(135deg, #ffffff, #e4e4e7)" : "rgba(255,255,255,0.05)" }}
                 >
-                  <Send className="w-4 h-4 text-white" />
+                  <Send className="w-4 h-4 text-zinc-800" />
                 </motion.button>
               </form>
               <p className="text-[10px] text-muted-foreground/90 text-center mt-2">
@@ -394,7 +394,7 @@ export default function ChatbotWidget() {
                 <a
                   href="#"
                   onClick={handleCopyEmail}
-                  className="text-[11px] hover:text-violet-300 transition-colors" title="Click to copy">
+                  className="text-[11px] hover:text-zinc-300 transition-colors" title="Click to copy">
                   {copied ? <span className="text-green-400 font-medium">Copied to clipboard!</span> : "contact@trynaveen.com"}
                 </a>
               </p>

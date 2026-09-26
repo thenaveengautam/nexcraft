@@ -88,14 +88,14 @@ export default function UpgradeModal({ open, onClose }: UpgradeModalProps) {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="glass-card border-white/10 max-w-md p-0 overflow-hidden">
         {/* Gradient header */}
-        <div className="bg-gradient-to-br from-violet-600/20 to-cyan-500/10 p-6 text-center relative">
+        <div className="bg-gradient-to-br from-zinc-600/20 to-zinc-500/10 p-6 text-center relative">
           <button
             onClick={onClose}
             className="absolute right-4 top-4 text-muted-foreground hover:text-foreground"
           >
             <X className="w-4 h-4" />
           </button>
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center mx-auto mb-3">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-zinc-400 to-zinc-600 flex items-center justify-center mx-auto mb-3">
             <Crown className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-xl font-heading font-bold">Upgrade to Pro</h2>
@@ -127,7 +127,7 @@ export default function UpgradeModal({ open, onClose }: UpgradeModalProps) {
           <Button
             onClick={handleUpgrade}
             disabled={loading}
-            className="w-full h-12 btn-premium"
+            className="w-full h-12 btn-apple"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin mr-2" />

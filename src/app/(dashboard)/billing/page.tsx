@@ -234,11 +234,11 @@ function BillingContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + i * 0.1 }}
-            className={`glass-card p-6 relative overflow-visible transition-all duration-300 hover:-translate-y-2 ${p.id !== "free" ? "hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10" : ""}`}
+            className={`glass-card p-6 relative overflow-visible transition-all duration-300 hover:-translate-y-2 ${p.id !== "free" ? "hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10" : ""}`}
           >
             {p.id === "pro" && (
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                <span className="pro-badge px-4 py-1.5 text-xs whitespace-nowrap shadow-lg shadow-violet-500/20">⭐ RECOMMENDED</span>
+                <span className="pro-badge px-4 py-1.5 text-xs whitespace-nowrap shadow-lg shadow-zinc-500/20">⭐ RECOMMENDED</span>
               </div>
             )}
 
@@ -268,11 +268,11 @@ function BillingContent() {
 
             {/* CTA Button logic */}
             {p.id === plan ? (
-              <Button disabled className="w-full h-11 bg-violet-500/10 text-violet-400 border border-violet-500/30">
+              <Button disabled className="w-full h-11 bg-zinc-900 text-zinc-400 border border-zinc-500/30">
                 <Check className="w-4 h-4 mr-2" /> Current Plan
               </Button>
             ) : (p.id === "pro" && plan === "free") || (p.id === "promax" && (plan === "free" || plan === "pro")) ? (
-              <Button onClick={() => handleUpgrade(p.id)} disabled={loading} className="w-full h-11 btn-premium">
+              <Button onClick={() => handleUpgrade(p.id)} disabled={loading} className="w-full h-11 btn-apple">
                 {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Zap className="w-4 h-4 mr-2" />}
                 Upgrade to {p.name}
               </Button>
@@ -286,7 +286,7 @@ function BillingContent() {
 
 export default function BillingPage() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-[50vh]"><Loader2 className="w-8 h-8 animate-spin text-violet-400" /></div>}>
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[50vh]"><Loader2 className="w-8 h-8 animate-spin text-zinc-400" /></div>}>
       <BillingContent />
     </Suspense>
   );

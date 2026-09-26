@@ -124,7 +124,7 @@ export default function HistoryPage() {
               className={cn(
                 "px-3 py-1.5 rounded-md text-xs font-medium transition-all",
                 filter === p.id
-                  ? "bg-violet-500/20 text-violet-400"
+                  ? "bg-zinc-800 text-zinc-400"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -138,7 +138,7 @@ export default function HistoryPage() {
           className={cn(
             "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all",
             favoritesOnly
-              ? "bg-amber-500/20 text-amber-400 border border-amber-500/30"
+              ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
               : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
           )}
         >
@@ -160,13 +160,13 @@ export default function HistoryPage() {
           animate={{ opacity: 1 }}
           className="text-center py-20"
         >
-          <div className="w-16 h-16 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto mb-4">
-            <Sparkles className="w-8 h-8 text-violet-400/50" />
+          <div className="w-16 h-16 rounded-full bg-zinc-900 flex items-center justify-center mx-auto mb-4">
+            <Sparkles className="w-8 h-8 text-zinc-400/50" />
           </div>
           <h3 className="font-heading font-semibold mb-2">No content yet</h3>
           <p className="text-muted-foreground text-sm mb-4">Start generating to build your library</p>
           <Link href="/generate">
-            <Button className="btn-premium">Go to Generator</Button>
+            <Button className="btn-apple">Go to Generator</Button>
           </Link>
         </motion.div>
       ) : (
@@ -180,7 +180,7 @@ export default function HistoryPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="glass-card p-5 group transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10"
+                className="glass-card p-5 group transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -208,7 +208,7 @@ export default function HistoryPage() {
                       onClick={() => handleToggleFavorite(content._id)}
                       className={cn(
                         "p-2 rounded-lg transition-all",
-                        content.isFavorite ? "text-amber-400" : "text-muted-foreground hover:text-amber-400"
+                        content.isFavorite ? "text-zinc-400" : "text-muted-foreground hover:text-zinc-400"
                       )}
                     >
                       <Star className={cn("w-4 h-4", content.isFavorite && "fill-current")} />

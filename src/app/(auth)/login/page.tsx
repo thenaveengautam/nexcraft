@@ -90,11 +90,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-[100dvh] flex items-center justify-center hero-gradient relative px-4 py-4 sm:py-8">
-      {/* Background orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
-      </div>
+
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -106,7 +102,7 @@ export default function LoginPage() {
         <div className="flex justify-center mb-4 sm:mb-6">
           <Link href="/" className="flex items-center gap-1.5 group">
             <NexcraftLogo />
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-gradient">Nexcraft</h1>
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-zinc-100">Nexcraft</h1>
           </Link>
         </div>
 
@@ -120,7 +116,7 @@ export default function LoginPage() {
             onClick={handleGoogleSignIn}
             disabled={googleLoading}
             variant="outline"
-            className="w-full h-10 sm:h-11 bg-white/5 border-white/10 hover:bg-white/10 hover:border-violet-500/30 transition-all mb-4 sm:mb-5"
+            className="w-full h-10 sm:h-11 bg-white/5 border-white/10 hover:bg-white/10 hover:border-zinc-500/30 transition-all mb-4 sm:mb-5"
           >
             {googleLoading ? (
               <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin mr-2" />
@@ -149,7 +145,7 @@ export default function LoginPage() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-10 sm:h-11 bg-white/5 border-white/10 focus:border-violet-500/50"
+                  className="pl-10 h-10 sm:h-11 bg-white/5 border-white/10 focus:border-zinc-700"
                   required
                 />
               </div>
@@ -160,7 +156,7 @@ export default function LoginPage() {
                 <Label htmlFor="password">Password</Label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs text-violet-400 hover:text-violet-300 transition-colors"
+                  className="text-xs text-zinc-400 hover:text-zinc-300 transition-colors"
                 >
                   Forgot password?
                 </Link>
@@ -173,7 +169,7 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 h-10 sm:h-11 bg-white/5 border-white/10 focus:border-violet-500/50"
+                  className="pl-10 pr-10 h-10 sm:h-11 bg-white/5 border-white/10 focus:border-zinc-700"
                   required
                 />
                 <button
@@ -189,7 +185,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-10 sm:h-11 btn-premium"
+              className="w-full h-10 sm:h-11 btn-apple"
             >
               {loading ? (
                 <Loader2 className="w-4 h-4 animate-spin mr-2" />
@@ -200,7 +196,7 @@ export default function LoginPage() {
 
           <p className="text-center text-xs sm:text-sm text-muted-foreground mt-4 sm:mt-5">
             Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-violet-400 hover:text-violet-300 font-medium transition-colors">
+            <Link href="/register" className="text-zinc-400 hover:text-zinc-300 font-medium transition-colors">
               Sign up
             </Link>
           </p>

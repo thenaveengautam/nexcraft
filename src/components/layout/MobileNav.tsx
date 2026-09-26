@@ -22,10 +22,10 @@ export default function MobileNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden flex items-center gap-2">
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all">
+          <button className="p-2 -ml-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all">
             <Menu className="w-5 h-5" />
           </button>
         </SheetTrigger>
@@ -36,7 +36,7 @@ export default function MobileNav() {
               <div className="flex items-center justify-center scale-90">
                  <NexcraftLogo />
               </div>
-              <h1 className="text-xl font-heading font-bold text-gradient tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
+              <h1 className="text-xl font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
             </Link>
           </div>
 
@@ -52,7 +52,7 @@ export default function MobileNav() {
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
                     isActive
-                      ? "bg-violet-500/10 text-violet-400 border border-violet-500/20"
+                      ? "bg-zinc-900 text-zinc-400 border border-zinc-500/20"
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                   )}
                 >
@@ -64,6 +64,14 @@ export default function MobileNav() {
           </nav>
         </SheetContent>
       </Sheet>
+      <Link href="/dashboard" className="flex items-center gap-1.5 group">
+        <div className="flex items-center justify-center scale-75">
+           <NexcraftLogo />
+        </div>
+        <div>
+          <h1 className="text-lg font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
+        </div>
+      </Link>
     </div>
   );
 }
