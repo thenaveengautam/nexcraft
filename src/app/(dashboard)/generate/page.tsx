@@ -104,9 +104,10 @@ function GenerateContent() {
               if (data.text) {
                 setOutput((prev) => prev + data.text);
               }
-            } catch (err: any) {
-              if (err.message && err.message !== "Unexpected end of JSON input" && !err.message.includes("JSON")) {
-                throw err;
+            } catch (err: unknown) {
+              const error = err as Error;
+              if (error.message && error.message !== "Unexpected end of JSON input" && !error.message.includes("JSON")) {
+                throw error;
               }
               // Skip parse errors
             }
