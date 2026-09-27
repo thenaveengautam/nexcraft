@@ -327,7 +327,7 @@ function GenerateContent() {
                 <div className="relative z-10 flex items-center justify-between p-4 border-b border-white/5 bg-white/[0.02] backdrop-blur-md">
                   <div className="flex items-center gap-4">
                     {/* macOS Style Window Controls */}
-                    <div className="flex items-center gap-1.5 hidden sm:flex">
+                    <div className="hidden sm:flex items-center gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]" />
                       <div className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123]" />
                       <div className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]" />
