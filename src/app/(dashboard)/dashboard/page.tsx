@@ -94,7 +94,7 @@ export default function DashboardPage() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.2 }}
       >
         <h1 className="text-3xl font-heading font-bold mb-1">
           Welcome back, <span className="text-zinc-100">{(user?.name as string)?.split(" ")[0] || "Creator"}</span> 👋
@@ -109,7 +109,7 @@ export default function DashboardPage() {
             key={stat.label}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
+            transition={{ duration: 0.2, delay: i * 0.05 }}
             className="glass-card p-5"
           >
             <div className="flex items-center gap-3 mb-3">
@@ -131,7 +131,7 @@ export default function DashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
+          transition={{ duration: 0.2, delay: 0.1 }}
           className="glass-card p-6"
         >
           <div className="flex items-center justify-between mb-3">
@@ -159,18 +159,18 @@ export default function DashboardPage() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.5 }}
+        transition={{ duration: 0.2, delay: 0.15 }}
       >
         <h2 className="text-lg font-heading font-semibold mb-4">Quick Generate</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {quickActions.map((action) => (
-            <Link key={action.label} href={action.href}>
-              <div className="glass-card p-4 flex items-center gap-3 cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10">
+            <Link key={action.label} href={action.href} prefetch={true}>
+              <div className="glass-card p-4 flex items-center gap-3 cursor-pointer group transition-all duration-150 hover:-translate-y-1 hover:border-[#E5E5EA]/30 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(229,229,234,0.07)]">
                 <span className="text-2xl">{action.emoji}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{action.label}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-zinc-400 transition-colors" />
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[#E5E5EA] group-hover:translate-x-1 transition-all" />
               </div>
             </Link>
           ))}
@@ -181,7 +181,7 @@ export default function DashboardPage() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.6 }}
+        transition={{ duration: 0.2, delay: 0.15 }}
       >
         <div 
           onMouseMove={handleMouseMove}
@@ -211,7 +211,7 @@ export default function DashboardPage() {
                 Generate scroll-stopping content for any social media platform in seconds with AI.
               </p>
               <Link href="/generate">
-                <button className="btn-apple px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-zinc-500/40">
+                <button className="btn-apple px-8 py-3 text-sm font-semibold transition-all duration-150 hover:scale-105 hover:shadow-zinc-500/40">
                   Open Generator <ArrowRight className="w-4 h-4 ml-2 inline transition-transform group-hover:translate-x-1" />
                 </button>
               </Link>

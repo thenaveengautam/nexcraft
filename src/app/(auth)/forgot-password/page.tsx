@@ -57,7 +57,7 @@ export default function ForgotPasswordPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.25 }}
         className="w-full max-w-md"
       >
         <div className="flex justify-center mb-4 sm:mb-6">

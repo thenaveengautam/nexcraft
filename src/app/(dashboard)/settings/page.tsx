@@ -48,7 +48,7 @@ export default function SettingsPage() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.05 }}
         className="glass-card p-6 mb-6"
       >
         <h3 className="font-heading font-semibold mb-4">Account</h3>
@@ -83,7 +83,7 @@ export default function SettingsPage() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+        transition={{ delay: 0.1 }}
         className="glass-card p-6 border-red-500/0"
       >
         <h3 className="font-heading font-semibold mb-4 text-red-400">Danger Zone</h3>

@@ -40,7 +40,7 @@
 @layer components {
   /* Apple-style glass card */
   .glass-card {
-    @apply relative overflow-hidden rounded-2xl bg-zinc-900/40 backdrop-blur-2xl border border-white/5 transition-all duration-500;
+    @apply relative overflow-hidden rounded-2xl bg-zinc-900/40 backdrop-blur-2xl border border-white/5 transition-all duration-300;
   }
   .glass-card-hover:hover {
     @apply border-white/20;
@@ -56,7 +56,7 @@
   }
 
   .btn-premium, .btn-apple {
-    @apply relative overflow-hidden px-6 py-3 font-semibold bg-white text-black transition-all duration-300;
+    @apply relative overflow-hidden px-6 py-3 font-semibold bg-white text-black transition-all duration-150;
     border-radius: 9999px !important;
   }
   .btn-premium:hover, .btn-apple:hover {
@@ -78,7 +78,7 @@
 
   /* Utilities */
   .usage-bar { @apply h-1.5 rounded-full overflow-hidden bg-zinc-800; }
-  .usage-bar-fill { @apply h-full rounded-full transition-all duration-500 bg-white; }
+  .usage-bar-fill { @apply h-full rounded-full transition-all duration-300 bg-white; }
   
   .pro-badge {
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-widest uppercase border border-white text-white bg-black;

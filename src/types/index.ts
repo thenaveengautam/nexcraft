@@ -2,10 +2,10 @@
 export type Platform = "instagram" | "twitter" | "linkedin" | "youtube";
 
 // Content types per platform
-export type InstagramContentType = "caption" | "reel-hook" | "bio" | "hashtag-set";
-export type TwitterContentType = "tweet" | "thread" | "reply-hook";
-export type LinkedInContentType = "post" | "carousel-script" | "connection-note";
-export type YouTubeContentType = "video-title" | "description" | "shorts-hook" | "community-post";
+export type InstagramContentType = "caption" | "reel-hook" | "bio" | "hashtag-set" | "carousel" | "story-idea";
+export type TwitterContentType = "tweet" | "thread" | "reply-hook" | "twitter-bio" | "quote-retweet";
+export type LinkedInContentType = "post" | "carousel-script" | "connection-note" | "linkedin-headline" | "linkedin-about" | "recommendation";
+export type YouTubeContentType = "video-title" | "description" | "shorts-hook" | "community-post" | "video-script" | "video-tags";
 
 export type ContentType =
   | InstagramContentType
@@ -14,7 +14,7 @@ export type ContentType =
   | YouTubeContentType;
 
 // Tone
-export type Tone = "professional" | "casual" | "humorous" | "inspirational" | "storytelling";
+export type Tone = "professional" | "casual" | "humorous" | "inspirational" | "storytelling" | "persuasive" | "educational" | "savage" | "genz";
 
 // Language
 export type Language = "english" | "hindi" | "hinglish";

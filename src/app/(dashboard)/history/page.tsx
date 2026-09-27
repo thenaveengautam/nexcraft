@@ -124,8 +124,8 @@ export default function HistoryPage() {
               className={cn(
                 "px-3 py-1.5 rounded-md text-xs font-medium transition-all",
                 filter === p.id
-                  ? "bg-zinc-800 text-zinc-400"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-[#E5E5EA] text-black shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/10"
               )}
             >
               {p.label}
@@ -138,7 +138,7 @@ export default function HistoryPage() {
           className={cn(
             "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all",
             favoritesOnly
-              ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
+              ? "bg-[#E5E5EA] text-black border border-[#E5E5EA] shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
               : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
           )}
         >
@@ -180,7 +180,7 @@ export default function HistoryPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="glass-card p-5 group transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
+                className="glass-card p-5 group transition-all duration-150 hover:-translate-y-2 hover:border-[#E5E5EA]/30 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(229,229,234,0.07)]"
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -208,20 +208,20 @@ export default function HistoryPage() {
                       onClick={() => handleToggleFavorite(content._id)}
                       className={cn(
                         "p-2 rounded-lg transition-all",
-                        content.isFavorite ? "text-zinc-400" : "text-muted-foreground hover:text-zinc-400"
+                        content.isFavorite ? "text-yellow-400 hover:bg-white/10" : "text-muted-foreground hover:bg-white/10 hover:text-yellow-400"
                       )}
                     >
                       <Star className={cn("w-4 h-4", content.isFavorite && "fill-current")} />
                     </button>
                     <button
                       onClick={() => handleCopy(content._id, content.generatedContent)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground transition-all"
+                      className="p-2 rounded-lg text-muted-foreground hover:bg-white/10 hover:text-foreground transition-all"
                     >
                       {copiedId === content._id ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                     </button>
                     <button
                       onClick={() => handleDelete(content._id)}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-red-400 transition-all"
+                      className="p-2 rounded-lg text-muted-foreground hover:bg-red-500/10 hover:text-red-400 transition-all"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>

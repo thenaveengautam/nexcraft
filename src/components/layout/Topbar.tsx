@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
-import { Bell, LogOut, Crown } from "lucide-react";
+import { LogOut, Crown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -19,7 +19,7 @@ export default function Topbar() {
   const plan = (user?.plan as string) || "free";
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 lg:px-8 glass-card rounded-none border-b border-white/5">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 lg:px-8 bg-black border-b border-white/5">
       {/* Mobile Nav */}
       <MobileNav />
 
@@ -29,23 +29,14 @@ export default function Topbar() {
       {/* Right side */}
       <div className="flex items-center gap-3 ml-auto">
         {/* Plan Badge */}
-        {plan === "pro" ? (
+        {plan === "pro" && (
           <div className="pro-badge">
             <Crown className="w-3 h-3" />
             PRO
           </div>
-        ) : (
-          <Link href="/billing">
-            <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:text-zinc-400 hover:border-zinc-500/30 transition-all cursor-pointer">
-              Free Plan
-            </span>
-          </Link>
         )}
 
-        {/* Notifications */}
-        <button className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all relative">
-          <Bell className="w-5 h-5" />
-        </button>
+
 
         {/* User Menu */}
         <DropdownMenu>

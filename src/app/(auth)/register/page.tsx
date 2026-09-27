@@ -97,7 +97,7 @@ export default function RegisterPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.25 }}
         className="w-full max-w-md"
       >
         <div className="flex justify-center mb-4 sm:mb-6">
@@ -194,7 +194,7 @@ export default function RegisterPage() {
                     {[...Array(5)].map((_, i) => (
                       <div
                         key={i}
-                        className="h-1 flex-1 rounded-full transition-all duration-300"
+                        className="h-1 flex-1 rounded-full transition-all duration-150"
                         style={{
                           background: i < passwordStrength.score
                             ? passwordStrength.color

@@ -29,12 +29,12 @@ export default function MobileNav() {
             <Menu className="w-5 h-5" />
           </button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-72 glass-card border-white/5 p-0">
+        <SheetContent side="left" className="w-72 bg-black border-white/5 p-0">
           {/* Logo */}
           <div className="p-6 border-b border-white/5">
-            <Link href="/dashboard" className="flex items-center gap-1.5 group" onClick={() => setOpen(false)}>
-              <div className="flex items-center justify-center scale-90">
-                 <NexcraftLogo />
+            <Link href="/dashboard" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
+              <div className="flex items-center justify-center">
+                 <NexcraftLogo className="w-7 h-7" />
               </div>
               <h1 className="text-xl font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>
             </Link>
@@ -48,11 +48,12 @@ export default function MobileNav() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={true}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
+                    "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all active:scale-95",
                     isActive
-                      ? "bg-zinc-900 text-zinc-400 border border-zinc-500/20"
+                      ? "bg-[#E5E5EA] text-black shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                   )}
                 >
@@ -64,9 +65,9 @@ export default function MobileNav() {
           </nav>
         </SheetContent>
       </Sheet>
-      <Link href="/dashboard" className="flex items-center gap-1.5 group">
-        <div className="flex items-center justify-center scale-75">
-           <NexcraftLogo />
+      <Link href="/dashboard" className="flex items-center gap-2 group">
+        <div className="flex items-center justify-center">
+           <NexcraftLogo className="w-6 h-6" />
         </div>
         <div>
           <h1 className="text-lg font-heading font-bold text-zinc-100 tracking-wide group-hover:opacity-90 transition-opacity">Nexcraft</h1>

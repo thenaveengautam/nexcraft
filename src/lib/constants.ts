@@ -21,6 +21,8 @@ export const PLATFORMS: {
       { id: "reel-hook", label: "Reel Hook", charLimit: 150 },
       { id: "bio", label: "Bio", charLimit: 150 },
       { id: "hashtag-set", label: "Hashtag Set", charLimit: 2200 },
+      { id: "carousel", label: "Carousel Content" },
+      { id: "story-idea", label: "Story Idea" },
     ],
   },
   {
@@ -33,6 +35,8 @@ export const PLATFORMS: {
       { id: "tweet", label: "Tweet", charLimit: 280 },
       { id: "thread", label: "Thread (5 tweets)" },
       { id: "reply-hook", label: "Reply Hook", charLimit: 280 },
+      { id: "twitter-bio", label: "Profile Bio", charLimit: 160 },
+      { id: "quote-retweet", label: "Quote Retweet", charLimit: 280 },
     ],
   },
   {
@@ -45,6 +49,9 @@ export const PLATFORMS: {
       { id: "post", label: "Post", charLimit: 3000 },
       { id: "carousel-script", label: "Carousel Script" },
       { id: "connection-note", label: "Connection Note", charLimit: 300 },
+      { id: "linkedin-headline", label: "Profile Headline", charLimit: 220 },
+      { id: "linkedin-about", label: "About Section", charLimit: 2600 },
+      { id: "recommendation", label: "Recommendation", charLimit: 3000 },
     ],
   },
   {
@@ -58,6 +65,8 @@ export const PLATFORMS: {
       { id: "description", label: "Description", charLimit: 5000 },
       { id: "shorts-hook", label: "Shorts Hook", charLimit: 100 },
       { id: "community-post", label: "Community Post", charLimit: 2000 },
+      { id: "video-script", label: "Video Script Outline" },
+      { id: "video-tags", label: "Video Tags / Keywords", charLimit: 500 },
     ],
   },
 ];
@@ -69,6 +78,10 @@ export const TONES: { id: Tone; label: string; emoji: string; description: strin
   { id: "humorous", label: "Humorous", emoji: "😂", description: "Witty & engaging" },
   { id: "inspirational", label: "Inspirational", emoji: "✨", description: "Motivating & uplifting" },
   { id: "storytelling", label: "Storytelling", emoji: "📖", description: "Narrative & immersive" },
+  { id: "persuasive", label: "Persuasive", emoji: "🔥", description: "Convincing & sales-driven" },
+  { id: "educational", label: "Educational", emoji: "🧠", description: "Informative & teaching" },
+  { id: "savage", label: "Savage / Roast", emoji: "💅", description: "Witty & sarcastic" },
+  { id: "genz", label: "Gen-Z Vibe", emoji: "🤪", description: "Trendy & internet slang" },
 ];
 
 // Languages
@@ -84,9 +97,9 @@ export const PLAN_LIMITS = {
     generationsPerMonth: 10,
     templates: false,
     customTemplates: false,
-    allTones: false,
+    allTones: true,
     priorityGeneration: false,
-    allowedTones: ["professional", "casual", "inspirational"] as Tone[],
+    allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling", "persuasive", "educational", "savage", "genz"] as Tone[],
   },
   pro: {
     generationsPerMonth: 50,
@@ -94,7 +107,7 @@ export const PLAN_LIMITS = {
     customTemplates: false,
     allTones: true,
     priorityGeneration: true,
-    allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling"] as Tone[],
+    allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling", "persuasive", "educational", "savage", "genz"] as Tone[],
   },
   promax: {
     generationsPerMonth: Infinity,
@@ -102,7 +115,7 @@ export const PLAN_LIMITS = {
     customTemplates: true,
     allTones: true,
     priorityGeneration: true,
-    allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling"] as Tone[],
+    allowedTones: ["professional", "casual", "humorous", "inspirational", "storytelling", "persuasive", "educational", "savage", "genz"] as Tone[],
   },
 };
 

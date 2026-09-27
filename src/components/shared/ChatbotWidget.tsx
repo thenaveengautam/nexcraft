@@ -242,7 +242,7 @@ export default function ChatbotWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-150 hover:scale-110 group"
             style={{ background: "linear-gradient(135deg, #ffffff, #e4e4e7)" }}
           >
             <MessageCircle className="w-6 h-6 text-black" />
@@ -313,7 +313,7 @@ export default function ChatbotWidget() {
                   {/* Email button */}
                   {msg.hasEmailButton && msg.role === "bot" && (
                     <motion.a
-                      initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+                      initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
                       href="#" onClick={handleCopyEmail}
                       className="mt-2 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-[12px] font-medium transition-all bg-zinc-500/15 border border-zinc-500/20 text-zinc-300 hover:bg-zinc-500/25"
                     >

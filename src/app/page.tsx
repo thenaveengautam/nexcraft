@@ -130,7 +130,7 @@ export default function LandingPage() {
     <div className="min-h-screen overflow-hidden scroll-smooth">
       {/* ===== NAVBAR ===== */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-150 ${scrolled
           ? "bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5"
           : "bg-transparent"
           }`}
@@ -150,14 +150,14 @@ export default function LandingPage() {
                 className="text-sm text-white hover:text-white transition-colors relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-150 group-hover:w-full" />
               </a>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
             <Link href="/login" className="hidden sm:block">
-              <Button variant="ghost" className="h-11 text-sm font-medium text-white/90 hover:text-white bg-white/[0.03] border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(255,255,255,0.05)] rounded-full px-8 transition-all duration-300">
+              <Button variant="ghost" className="h-11 text-sm font-medium text-white/90 hover:text-white bg-white/[0.03] border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(255,255,255,0.05)] rounded-full px-8 transition-all duration-150">
                 Sign In
               </Button>
             </Link>
@@ -217,30 +217,30 @@ export default function LandingPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
 
-          <motion.h1 {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl lg:text-[5.5rem] font-heading font-bold leading-tight mb-6">
+          <motion.h1 {...fadeIn} transition={{ duration: 0.15, delay: 0.1 }} className="text-4xl sm:text-5xl lg:text-[5.5rem] font-heading font-bold leading-tight mb-6">
             Craft Content That{" "}
             <span className="text-zinc-100">Glows</span>
           </motion.h1>
 
-          <motion.p {...fadeIn} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <motion.p {...fadeIn} transition={{ duration: 0.15, delay: 0.05 }} className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             Generate scroll-stopping social media content for Instagram, Twitter/X, LinkedIn & YouTube in seconds with the power of AI.
           </motion.p>
 
-          <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div {...fadeIn} transition={{ duration: 0.15, delay: 0.1 }} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button className="btn-premium h-13 px-8 text-base">
                 Start Free <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <a href="#features">
-              <Button variant="outline" className="h-13 px-8 text-base bg-white/[0.02] border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] rounded-full transition-all duration-300">
+              <Button variant="outline" className="h-13 px-8 text-base bg-white/[0.02] border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] rounded-full transition-all duration-150">
                 See Features
               </Button>
             </a>
           </motion.div>
 
           {/* Platform icons */}
-          <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.4 }} className="flex items-center justify-center gap-6 mt-12">
+          <motion.div {...fadeIn} transition={{ duration: 0.15, delay: 0.1 }} className="flex items-center justify-center gap-6 mt-12">
             {[
               { icon: InstagramIcon, color: "#E1306C", label: "Instagram" },
               { icon: TwitterIcon, color: "#1DA1F2", label: "Twitter/X" },
@@ -251,8 +251,8 @@ export default function LandingPage() {
                 key={p.label}
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.1 }}
-                className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-125 hover:shadow-lg cursor-pointer"
+                transition={{ delay: 0.15 + i * 0.1 }}
+                className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150 hover:scale-125 hover:shadow-lg cursor-pointer"
                 style={{ background: `${p.color}15` }}
                 title={p.label}
               >
@@ -278,11 +278,11 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.05 }}
                 className="group"
               >
-                <div className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 group-hover:bg-indigo-500/20 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-all duration-500">
-                  <stat.icon className="w-5 h-5 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all duration-500" />
+                <div className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-indigo-500/10 border border-indigo-500/20 group-hover:bg-indigo-500/20 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-all duration-300">
+                  <stat.icon className="w-5 h-5 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all duration-300" />
                 </div>
                 <p className="text-3xl sm:text-4xl font-heading font-bold text-zinc-100">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
@@ -320,12 +320,12 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card p-6 group cursor-default transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
+                transition={{ delay: i * 0.05 }}
+                className="glass-card p-6 group cursor-default transition-all duration-150 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
                 style={{ overflow: "visible" }}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-150 group-hover:scale-110 group-hover:shadow-lg"
                   style={{ background: `${feature.color}15` }}
                 >
                   <feature.icon className="w-6 h-6" style={{ color: feature.color }} />
@@ -360,10 +360,10 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
+                transition={{ delay: i * 0.05 }}
                 className="text-center group cursor-default"
               >
-                <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">{item.emoji}</div>
+                <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-150">{item.emoji}</div>
                 <div className="text-xs text-zinc-400 font-heading font-bold mb-2">STEP {item.step}</div>
                 <h3 className="font-heading font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -418,8 +418,8 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className={`glass-card p-8 relative overflow-visible transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10 cursor-default`}
+                transition={{ delay: i * 0.05 }}
+                className={`glass-card p-8 relative overflow-visible transition-all duration-150 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10 cursor-default`}
               >
                 {p.popular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
@@ -485,11 +485,11 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="relative overflow-hidden rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/5 p-8 transition-all duration-500 hover:border-white/20 hover:bg-zinc-900/60 cursor-default group"
+                transition={{ delay: i * 0.04 }}
+                className="relative overflow-hidden rounded-2xl bg-zinc-900/40 backdrop-blur-xl border border-white/5 p-8 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/60 cursor-default group"
               >
                 {/* Subtle top glow on hover */}
-                <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div className="flex mb-6 gap-1">
                   {[...Array(testimonial.stars)].map((_, j) => (
@@ -532,17 +532,17 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
+                className="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-150 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left group"
                 >
                   <span className="font-heading font-medium text-base pr-4 group-hover:text-white transition-colors">{faq.question}</span>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === i ? 'bg-zinc-800 rotate-180' : 'bg-white/5'
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-150 ${openFaq === i ? 'bg-zinc-800 rotate-180' : 'bg-white/5'
                     }`}>
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-colors duration-300 ${openFaq === i ? "text-zinc-400" : "text-muted-foreground"
+                      className={`w-3.5 h-3.5 transition-colors duration-150 ${openFaq === i ? "text-zinc-400" : "text-muted-foreground"
                         }`}
                     />
                   </div>
@@ -553,7 +553,7 @@ export default function LandingPage() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.15 }}
                     >
                       <div className="px-6 pb-5">
                         <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -577,7 +577,7 @@ export default function LandingPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card p-12 transition-all duration-300 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10">
+            <div className="glass-card p-12 transition-all duration-150 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
                 Ready to <span className="text-zinc-100">Glow Up</span> Your Content?
               </h2>

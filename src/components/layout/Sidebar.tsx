@@ -27,7 +27,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 glass-card rounded-none border-r border-white/5 z-40">
+    <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-black border-r border-white/5 z-40">
       {/* Logo */}
       <div className="p-6 border-b border-white/5">
         <Link href="/dashboard" className="flex items-center gap-1.5 group">
@@ -45,13 +45,14 @@ export default function Sidebar() {
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
-            <Link
+              <Link
               key={item.href}
               href={item.href}
+              prefetch={true}
               className={cn(
-                "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",
+                "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 active:scale-95",
                 isActive
-                  ? "bg-zinc-900 text-zinc-400 border border-zinc-500/20"
+                  ? "bg-[#E5E5EA] text-black shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
                   : "text-muted-foreground hover:text-foreground hover:bg-white/5"
               )}
             >

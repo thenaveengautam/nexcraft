@@ -138,7 +138,7 @@ export default function TemplatesPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.03 }}
-            className="glass-card p-5 cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
+            className="glass-card p-5 cursor-pointer group transition-all duration-150 hover:-translate-y-2 hover:border-[#E5E5EA]/30 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(229,229,234,0.07)]"
             onClick={() => handleUseTemplate(template)}
           >
             <div className="flex items-start justify-between mb-3">
@@ -153,7 +153,7 @@ export default function TemplatesPage() {
               <span className="text-xs px-2 py-0.5 rounded bg-white/5 capitalize">{template.platform}</span>
               <span className="text-xs px-2 py-0.5 rounded bg-white/5 capitalize">{template.tone}</span>
             </div>
-            <div className="flex items-center gap-1 mt-3 text-xs text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-1 mt-3 text-xs text-[#E5E5EA] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
               Use template <ArrowRight className="w-3 h-3" />
             </div>
           </motion.div>

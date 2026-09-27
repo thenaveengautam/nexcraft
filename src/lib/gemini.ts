@@ -15,16 +15,25 @@ const CONTENT_TYPE_LABELS: Record<ContentType, string> = {
   "reel-hook": "Reel Hook (strictly 1-2 short punchy lines that stop scrolling)",
   bio: "Profile Bio (strictly short and punchy, maximum 150 characters)",
   "hashtag-set": "Set of relevant hashtags (exactly 20-30)",
+  carousel: "Carousel slide content (5-8 short, engaging slides)",
+  "story-idea": "Story idea/script (engaging, interactive with polls or questions)",
   tweet: "Tweet (strictly under 280 characters)",
   thread: "Thread of 5 connected tweets (each under 280 characters)",
   "reply-hook": "Reply hook (strictly 1-2 short sentences to boost engagement)",
+  "twitter-bio": "Twitter Bio (short, sharp, and optimized for keywords, max 160 chars)",
+  "quote-retweet": "Quote Retweet commentary (witty or insightful addition, under 280 chars)",
   post: "LinkedIn Post (well-structured, 3-5 short paragraphs)",
   "carousel-script": "Carousel slides script (8-10 slides with short heading + concise body)",
   "connection-note": "Connection request note (strictly under 300 characters)",
+  "linkedin-headline": "LinkedIn Headline (powerful, keyword-rich, and professional, max 220 chars)",
+  "linkedin-about": "LinkedIn About Section (compelling professional summary, well-structured)",
+  recommendation: "LinkedIn Recommendation (professional, highlighting specific skills and achievements)",
   "video-title": "Video Title (SEO optimized, strictly under 100 chars)",
   description: "Video Description (SEO optimized with timestamps, detailed but scannable)",
   "shorts-hook": "Shorts opening hook (strictly first 3 seconds script, very short)",
   "community-post": "Community tab post (concise and engaging)",
+  "video-script": "YouTube Video Script Outline (structured with intro, main points, and outro)",
+  "video-tags": "YouTube Video Tags (comma-separated, highly relevant SEO keywords)",
 };
 
 const TONE_PROMPTS: Record<Tone, string> = {
@@ -33,6 +42,10 @@ const TONE_PROMPTS: Record<Tone, string> = {
   humorous: "Use a witty, funny, and entertaining tone. Include clever wordplay or relatable humor.",
   inspirational: "Use an uplifting, motivational, and empowering tone. Inspire action and belief.",
   storytelling: "Use a narrative, immersive storytelling tone. Create vivid scenes and emotional connection.",
+  persuasive: "Use a highly convincing, persuasive, and action-driven tone. Focus on benefits and strong calls-to-action.",
+  educational: "Use an informative, clear, and educational tone. Break down concepts simply as if teaching.",
+  savage: "Use a highly sarcastic, witty, and 'savage' tone (like Wendy's or Duolingo). Roast politely but keep it highly entertaining and unhinged.",
+  genz: "Use modern Gen-Z internet slang, aesthetics, and pacing. Keep it extremely trendy, relatable, and slightly chaotic without sounding forced.",
 };
 
 const LANGUAGE_PROMPTS: Record<Language, string> = {
@@ -78,7 +91,6 @@ export async function generateContentStream(prompt: string) {
     model: "openai/gpt-oss-120b",
     messages: [{ role: "user", content: prompt }],
     stream: true,
-    max_tokens: 1024,
   });
 
   return stream;

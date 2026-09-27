@@ -233,8 +233,8 @@ function BillingContent() {
             key={p.id}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + i * 0.1 }}
-            className={`glass-card p-6 relative overflow-visible transition-all duration-300 hover:-translate-y-2 ${p.id !== "free" ? "hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10" : ""}`}
+            transition={{ delay: 0.05 + i * 0.1 }}
+            className={`glass-card p-6 relative overflow-visible transition-all duration-150 hover:-translate-y-2 ${p.id !== "free" ? "hover:border-[#E5E5EA]/30 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(229,229,234,0.07)]" : ""}`}
           >
             {p.id === "pro" && (
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">

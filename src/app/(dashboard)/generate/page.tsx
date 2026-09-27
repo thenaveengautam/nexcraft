@@ -98,11 +98,16 @@ function GenerateContent() {
             try {
               const data = JSON.parse(line.slice(6));
               if (data.done) break;
-              if (data.error) throw new Error(data.error);
+              if (data.error) {
+                throw new Error(data.error);
+              }
               if (data.text) {
                 setOutput((prev) => prev + data.text);
               }
-            } catch {
+            } catch (err: any) {
+              if (err.message && err.message !== "Unexpected end of JSON input" && !err.message.includes("JSON")) {
+                throw err;
+              }
               // Skip parse errors
             }
           }
@@ -159,8 +164,8 @@ function GenerateContent() {
                   key={p.id}
                   onClick={() => handlePlatformChange(p.id)}
                   className={cn(
-                    "glass-card p-3 flex items-center gap-3 transition-all duration-300 cursor-pointer",
-                    platform === p.id ? "platform-selected" : "hover:-translate-y-1 hover:border-zinc-700 hover:shadow-xl hover:shadow-zinc-500/10"
+                    "glass-card p-3 flex items-center gap-3 transition-all duration-150 cursor-pointer",
+                    platform === p.id ? "bg-[#E5E5EA] text-black border border-[#E5E5EA] shadow-[0_0_15px_rgba(229,229,234,0.2)] font-semibold" : "hover:-translate-y-1 hover:border-[#E5E5EA]/30 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(229,229,234,0.07)]"
                   )}
                 >
                   <div
@@ -186,7 +191,7 @@ function GenerateContent() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all",
                     contentType === ct.id
-                      ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
+                      ? "bg-[#E5E5EA] text-black border border-[#E5E5EA] shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
                       : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                   )}
                 >
@@ -210,7 +215,7 @@ function GenerateContent() {
                       "px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-1.5",
                       !isAllowed && "opacity-50",
                       tone === t.id
-                        ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
+                        ? "bg-[#E5E5EA] text-black border border-[#E5E5EA] shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
                         : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                     )}
                   >
@@ -234,7 +239,7 @@ function GenerateContent() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2",
                     language === l.id
-                      ? "bg-zinc-800 text-zinc-400 border border-zinc-500/30"
+                      ? "bg-[#E5E5EA] text-black border border-[#E5E5EA] shadow-[0_0_10px_rgba(229,229,234,0.2)] font-semibold"
                       : "bg-white/5 text-muted-foreground border border-white/10 hover:bg-white/10"
                   )}
                 >
@@ -293,11 +298,11 @@ function GenerateContent() {
         <motion.div
           initial={{ opacity: 0, x: 15 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.05 }}
         >
           <div className="sticky top-24">
             <div
-              className="relative overflow-hidden rounded-2xl min-h-[500px] flex flex-col p-[1px] group shadow-2xl hover:shadow-zinc-500/20 transition-all duration-700 bg-[#09090b]"
+              className="relative overflow-hidden rounded-2xl min-h-[500px] flex flex-col p-[1px] group shadow-2xl hover:shadow-zinc-500/20 transition-all duration-300 bg-[#09090b]"
             >
               {/* Animated Spinning Border Beams */}
               <div className="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#00000000_50%,#00000000_80%,#8b5cf6_100%)] animate-[spin_4s_linear_infinite]" />
@@ -344,7 +349,7 @@ function GenerateContent() {
                         variant="ghost"
                         size="sm"
                         onClick={handleCopy}
-                        className="text-sm h-8 text-muted-foreground hover:text-foreground"
+                        className="text-sm h-8 text-muted-foreground hover:bg-white/10 hover:text-foreground"
                       >
                         {copied ? <Check className="w-3 h-3 mr-1" /> : <Copy className="w-3 h-3 mr-1" />}
                         {copied ? "Copied" : "Copy"}
@@ -354,7 +359,7 @@ function GenerateContent() {
                         size="sm"
                         onClick={handleGenerate}
                         disabled={generating}
-                        className="text-sm h-8 text-muted-foreground hover:text-foreground"
+                        className="text-sm h-8 text-muted-foreground hover:bg-white/10 hover:text-foreground"
                       >
                         <RefreshCw className="w-3 h-3 mr-1" />
                         Redo
@@ -371,7 +376,7 @@ function GenerateContent() {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center h-full text-center relative z-10">
-                      <div className="w-20 h-20 rounded-full bg-zinc-500/5 flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(139,92,246,0.1)] relative group-hover:scale-110 transition-transform duration-700">
+                      <div className="w-20 h-20 rounded-full bg-zinc-500/5 flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(139,92,246,0.1)] relative group-hover:scale-110 transition-transform duration-300">
                         <div className="absolute inset-0 rounded-full border border-zinc-500/20 animate-[spin_10s_linear_infinite]" />
                         <Sparkles className="w-10 h-10 text-zinc-400/80 animate-[pulse_3s_ease-in-out_infinite]" />
                       </div>
